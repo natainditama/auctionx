@@ -10,7 +10,7 @@ class GuestMiddleware implements Middleware
   function before(): void
   {
     if (!isset($_SESSION['user'])) {
-      View::render("./login");
+      View::redirect('./login');
     }
   }
 }
