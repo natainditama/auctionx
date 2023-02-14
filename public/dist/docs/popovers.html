@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+
+<!-- Favicon icon-->
+<link rel="shortcut icon" type="image/x-icon" href="../assets/images/favicon/favicon.ico">
+
+<!-- Libs CSS -->
+
+
+<link href="../assets/libs/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+<link href="../assets/libs/dropzone/dist/dropzone.css"  rel="stylesheet">
+<link href="../assets/libs/@mdi/font/css/materialdesignicons.min.css" rel="stylesheet" />
+<link href="../assets/libs/prismjs/themes/prism-okaidia.css" rel="stylesheet">
+
+
+
+
+
+
+
+
+<!-- Theme CSS -->
+<link rel="stylesheet" href="../assets/css/theme.min.css">
+  <title>Popovers | Dash Ui - Bootstrap 5 Admin Dashboard Template</title>
+
+</head>
+
+<body class="bg-white">
+  <!-- Main wrapper -->
+  
+  <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom position-fixed w-100  " style="z-index: 2;">
+   <div class="container-fluid ">
+     <a class="navbar-brand" href="../index.html"><img src="../assets/images/brand/logo/logo-primary.svg" alt=""></a>
+     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+       <span class="navbar-toggler-icon"></span>
+     </button>
+
+
+     <div class="collapse navbar-collapse" id="navbarSupportedContent">
+       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+         <li class="nav-item">
+           <a class="nav-link active" href="../index.html">Home</a>
+         </li>
+         <li class="nav-item">
+           <a class="nav-link" href="../docs/accordions.html">Components</a>
+         </li>
+
+         <li class="nav-item">
+           <a class="nav-link" href="../docs/index.html">Docs</a>
+         </li>
+       </ul>
+       <div class="ms-auto d-flex">
+         <a href="https://github.com/codescandy/Dash-UI" class="btn btn-primary d-flex align-items-center"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" class="bi bi-github me-2" viewBox="0 0 16 16">
+          <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+        </svg>Github</a>
+
+       </div>
+
+     </div>
+   </div>
+ </nav>
+    <!-- Left sidebar -->
+  
+    <div class="pt-9">
+    <div class="container-fluid">
+        <div class="row">
+        <div class="col-lg-2 col-12 bg-white position-sticky">
+          <div class="doc-sidebar">
+  <div class="nav-scroller mt-n4 mt-lg-0" >
+  <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="collapse navbar-collapse">
+          <ul class="navbar-nav flex-column" id="sidebarnav">
+              <li class="nav-item"><a href="index.html" class="nav-link">Introduction</a></li>
+              <li class="nav-item"><a href="gulp.html" class="nav-link">Gulp</a></li>
+
+              <li class="nav-item"><a href="changelog.html" class="nav-link">Changelog</a>
+              </li>
+              <li class="nav-item"><a href="credits.html" class="nav-link">Credits</a></li>
+
+              <li class="navbar-header">
+                <h5 class="heading">Utilities</h5>
+              </li>
+              <li class="nav-item">
+                <a href="borders.html" class="nav-link">
+                  Borders
+                </a>
+              </li>
+              <li class="nav-item"><a href="colored-links.html" class="nav-link"> Colored Links </a></li>
+              <li class="nav-item"><a href="opacity.html" class="nav-link"> Opacity </a></li>
+              <li class="nav-item"><a href="ratio.html" class="nav-link"> Ratio </a></li>
+              <li class="nav-item"><a href="stacks.html" class="nav-link"> Stacks </a></li>             
+              <li class="nav-item"><a href="text.html" class="nav-link"> Text </a></li>
+              <li class="nav-item"><a href="text-truncation.html" class="nav-link"> Text truncation </a></li>
+              <li class="nav-item"><a href="vertical-rule.html" class="nav-link"> Vertical rule </a></li>
+              <li class="nav-item"><a href="colors.html" class="nav-link">Colors</a></li>
+              <li class="nav-item"><a href="shadows.html" class="nav-link">Shadows</a></li>
+              <li class="nav-item"><a href="typography.html" class="nav-link">Typography</a></li>
+              <li class="navbar-header">
+                <h5 class="heading">Components</h5>
+              </li>
+              <li class="nav-item">
+                <a href="accordions.html" class="nav-link">
+                  Accordions
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="alerts.html" class="nav-link">
+                  Alerts
+                </a>
+              </li>
+              
+              <li class="nav-item">
+                <a href="badge.html" class="nav-link">
+                  Badge
+                </a>
+              </li>
+    
+              <li class="nav-item">
+                <a href="breadcrumb.html" class="nav-link">
+                  Breadcrumb
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="buttons.html" class="nav-link">
+                  Buttons
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="button-group.html" class="nav-link">
+                  Button group
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="card.html" class="nav-link">
+                  Card
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="carousel.html" class="nav-link">
+                  Carousel
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="close-button.html" class="nav-link">
+                  Close Button
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="collapse.html" class="nav-link">
+                  Collapse
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="dropdowns.html" class="nav-link">
+                  Dropdowns
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="forms.html" class="nav-link">
+                  Forms
+                </a>
+              </li>
+           
+              <li class="nav-item">
+                <a href="list-group.html" class="nav-link">
+                  List group
+                </a>
+              </li>
+    
+              <li class="nav-item">
+                <a href="modal.html" class="nav-link">
+                  Modal
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="navs-tabs.html" class="nav-link">
+                  Navs and tabs
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="navbar.html" class="nav-link">
+                  Navbar
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="offcanvas.html" class="nav-link">
+                  Offcanvas
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="pagination.html" class="nav-link">
+                  Pagination
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="placeholders.html" class="nav-link">
+                  Placeholders
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="popovers.html" class="nav-link">
+                  Popovers
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="progress.html" class="nav-link">
+                  Progress
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="scrollspy.html" class="nav-link">
+                  Scrollspy
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="spinners.html" class="nav-link">
+                  Spinners
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="tables.html" class="nav-link">
+                  Tables
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="toasts.html" class="nav-link">
+                  Toasts
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="tooltips.html" class="nav-link">
+                  Tooltips
+                </a>
+              </li>
+             
+          </ul>
+
+        </div>
+
+    </nav>
+  </div>
+  </div>
+        </div>
+    <!-- Wrapper  -->
+    <div class="col-lg-8 col-12 p-8">
+    <div class="row">
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+      <div class="mb-7" id="intro">
+                    <h1 class="mb-2">Popovers</h1>
+                    <p class="mb-0 lead text-muted">Documentation and examples for adding Bootstrap popovers, like those
+                      found in iOS, to any element on your site.</p>
+                  </div>
+                </div>
+              </div>
+              <!-- Default popover -->
+              <div class="row">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                  <div id="default-popover" class="mb-4">
+                    <h2 class="fw-semi-bold mb-1">Default Popovers</h2>
+                  </div>
+                  <!-- Card -->
+                  <div class="mb-10 card">
+                    <ul class="nav nav-line-bottom" id="pills-tab-default-popover" role="tablist">
+                      <li class="nav-item">
+                        <a class="nav-link active" id="pills-default-popover-design-tab" data-bs-toggle="pill"
+                          href="#pills-default-popover-design" role="tab" aria-controls="pills-default-popover-design"
+                          aria-selected="true">Design</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" id="pills-default-popover-html-tab" data-bs-toggle="pill"
+                          href="#pills-default-popover-html" role="tab" aria-controls="pills-default-popover-html"
+                          aria-selected="false">HTML</a>
+                      </li>
+                    </ul>
+                    <!-- Tab content -->
+                    <div class="tab-content p-4" id="pills-tabContent-default-popover">
+                      <div class="tab-pane tab-example-design fade show active" id="pills-default-popover-design"
+                        role="tabpanel" aria-labelledby="pills-default-popover-design-tab">
+                        <button type="button" class="btn  btn-danger text-white" data-bs-toggle="popover"
+                          title="Popover title"
+                          data-bs-content="And here's some amazing content. It's very engaging. Right?">Click
+                          to toggle popover</button>
+                      </div>
+                      <div class="tab-pane tab-example-html fade " id="pills-default-popover-html" role="tabpanel"
+                        aria-labelledby="pills-default-popover-html-tab">
+                            <pre><code class="language-markup"> <span class="token comment">&lt;!-- example --&gt;</span>
+ <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>button<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>btn  btn-primary<span class="token punctuation">"</span></span> <span class="token attr-name">data-bs-toggle</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>popover<span class="token punctuation">"</span></span> <span class="token attr-name">title</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>Popover title<span class="token punctuation">"</span></span> <span class="token attr-name">data-bs-content</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>And here's some amazing content. It's very engaging. Right?<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>Click to toggle popover<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">&gt;</span></span></code></pre>
+                       </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Default popover -->
+
+              <!-- Four directions -->
+              <div class="row">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                  <div id="four-direction" class="mb-4">
+                    <h2 class="fw-semi-bold mb-1">Four directions</h2>
+                    <p>Four options are available: top, right, bottom, and left aligned.</p>
+                  </div>
+                  <!-- Card -->
+                  <div class="mb-10 card">
+                    <ul class="nav nav-line-bottom" id="pills-tab-four-direction" role="tablist">
+                      <li class="nav-item">
+                        <a class="nav-link active" id="pills-four-direction-design-tab" data-bs-toggle="pill"
+                          href="#pills-four-direction-design" role="tab" aria-controls="pills-four-direction-design"
+                          aria-selected="true">Design</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" id="pills-four-direction-html-tab" data-bs-toggle="pill"
+                          href="#pills-four-direction-html" role="tab" aria-controls="pills-four-direction-html"
+                          aria-selected="false">HTML</a>
+                      </li>
+                    </ul>
+                    <!-- Tab content -->
+                    <div class="tab-content p-4" id="pills-tabContent-four-direction">
+                      <div class="tab-pane tab-example-design fade show active" id="pills-four-direction-design"
+                        role="tabpanel" aria-labelledby="pills-four-direction-design-tab">
+                        <button type="button" class="btn btn-secondary mb-1" data-bs-container="body" data-bs-toggle="popover"
+                          data-bs-placement="top" data-bs-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
+                          Popover on top
+                        </button>
+                        <button type="button" class="btn btn-secondary mb-1" data-bs-container="body" data-bs-toggle="popover"
+                          data-bs-placement="right"
+                          data-bs-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
+                          Popover on right
+                        </button>
+                        <button type="button" class="btn btn-secondary mb-1" data-bs-container="body" data-bs-toggle="popover"
+                          data-bs-placement="bottom" data-bs-content="Vivamus
+sagittis lacus vel augue laoreet rutrum faucibus.">
+                          Popover on bottom
+                        </button>
+                        <button type="button" class="btn btn-secondary mb-1 " data-bs-container="body" data-bs-toggle="popover"
+                          data-bs-placement="left"
+                          data-bs-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
+                          Popover on left
+                        </button>
+                      </div>
+                      <div class="tab-pane tab-example-html fade" id="pills-four-direction-html" role="tabpanel"
+                        aria-labelledby="pills-four-direction-html-tab">
+
+                            <pre><code class="language-markup"> <span class="token comment">&lt;!-- four directions --&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>button<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>btn btn-secondary<span class="token punctuation">"</span></span> <span class="token attr-name">data-bs-container</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>body<span class="token punctuation">"</span></span> <span class="token attr-name">data-bs-toggle</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>popover<span class="token punctuation">"</span></span> <span class="token attr-name">data-bs-placement</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>top<span class="token punctuation">"</span></span> <span class="token attr-name">data-bs-content</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>Vivamus sagittis lacus vel augue laoreet rutrum faucibus.<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+  Popover on top
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>button<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>btn btn-secondary<span class="token punctuation">"</span></span> <span class="token attr-name">data-bs-container</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>body<span class="token punctuation">"</span></span> <span class="token attr-name">data-bs-toggle</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>popover<span class="token punctuation">"</span></span> <span class="token attr-name">data-bs-placement</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>right<span class="token punctuation">"</span></span> <span class="token attr-name">data-bs-content</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>Vivamus sagittis lacus vel augue laoreet rutrum faucibus.<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+  Popover on right
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>button<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>btn btn-secondary<span class="token punctuation">"</span></span> <span class="token attr-name">data-bs-container</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>body<span class="token punctuation">"</span></span> <span class="token attr-name">data-bs-toggle</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>popover<span class="token punctuation">"</span></span> <span class="token attr-name">data-bs-placement</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>bottom<span class="token punctuation">"</span></span> <span class="token attr-name">data-bs-content</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>Vivamus
+sagittis lacus vel augue laoreet rutrum faucibus.<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+  Popover on bottom
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>button<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>btn btn-secondary<span class="token punctuation">"</span></span> <span class="token attr-name">data-bs-container</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>body<span class="token punctuation">"</span></span> <span class="token attr-name">data-bs-toggle</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>popover<span class="token punctuation">"</span></span> <span class="token attr-name">data-bs-placement</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>left<span class="token punctuation">"</span></span> <span class="token attr-name">data-bs-content</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>Vivamus sagittis lacus vel augue laoreet rutrum faucibus.<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+  Popover on left
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">&gt;</span></span></code></pre>
+
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Four directions -->
+
+              <!-- Dismiss on next click -->
+              <div class="row">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                  <div id="dismiss-on-next-click" class="mb-4">
+                    <h2 class="fw-semi-bold mb-1">Dismiss on next click</h2>
+                    <p>Use the <code class="highlighter-rouge">focus</code> trigger to dismiss popovers on the user’s
+                      next click of a different element than the toggle element.
+                    </p>
+                  </div>
+                  <!-- Card -->
+                  <div class="mb-10 card">
+                    <ul class="nav nav-line-bottom" id="pills-tab-dismiss-on-next-click" role="tablist">
+                      <li class="nav-item">
+                        <a class="nav-link active" id="pills-dismiss-on-next-click-design-tab" data-bs-toggle="pill"
+                          href="#pills-dismiss-on-next-click-design" role="tab"
+                          aria-controls="pills-dismiss-on-next-click-design" aria-selected="true">Design</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" id="pills-dismiss-on-next-click-html-tab" data-bs-toggle="pill"
+                          href="#pills-dismiss-on-next-click-html" role="tab"
+                          aria-controls="pills-dismiss-on-next-click-html" aria-selected="false">HTML</a>
+                      </li>
+                    </ul>
+                    <div class="tab-content p-4" id="pills-tabContent-dismiss-on-next-click">
+                      <div class="tab-pane tab-example-design fade show active" id="pills-dismiss-on-next-click-design"
+                        role="tabpanel" aria-labelledby="pills-dismiss-on-next-click-design-tab">
+                        <a tabindex="0" class="btn  btn-danger text-white" role="button" data-bs-toggle="popover"
+                          data-trigger="focus" title="Dismissible popover"
+                          data-bs-content="And here's some amazing content. It's very engaging. Right?">Dismissible
+                          popover</a>
+                      </div>
+                      <div class="tab-pane tab-example-html fade" id="pills-dismiss-on-next-click-html" role="tabpanel"
+                        aria-labelledby="pills-dismiss-on-next-click-html-tab">
+
+                            <pre><code class="language-markup"> <span class="token comment">&lt;!-- dismiss on next click --&gt;</span>
+ <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">tabindex</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>0<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>btn  btn-danger<span class="token punctuation">"</span></span> <span class="token attr-name">role</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>button<span class="token punctuation">"</span></span> <span class="token attr-name">data-bs-toggle</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>popover<span class="token punctuation">"</span></span> <span class="token attr-name">data-trigger</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>focus<span class="token punctuation">"</span></span> <span class="token attr-name">title</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>Dismissible popover<span class="token punctuation">"</span></span> <span class="token attr-name">data-bs-content</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>And here's some amazing content. It's very engaging. Right?<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>Dismissible popover<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">&gt;</span></span></code></pre>
+
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Disabled elements -->
+              <div class="row">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                  <div id="disabled-element" class="mb-4">
+                    <h2 class="fw-semi-bold mb-1">Disabled elements</h2>
+                    <p>Elements with the <code>disabled</code> attribute aren’t interactive, meaning users cannot hover or click them to trigger a popover (or tooltip). As a workaround, you’ll want to trigger the popover from a wrapper <code>&lt;div&gt;</code> or <code>&lt;span&gt;</code>, ideally made keyboard-focusable using <code>tabindex="0"</code>.</p>
+                    <p>For disabled popover triggers, you may also prefer <code>data-bs-trigger="hover focus"</code> so that the popover appears as immediate visual feedback to your users as they may not expect to <em>click</em> on a disabled element.</p>
+                  </div>
+                  <!-- Card -->
+                  <div class="mb-10 card">
+                    <ul class="nav nav-line-bottom" id="pills-tab-disabled-element" role="tablist">
+                      <li class="nav-item">
+                        <a class="nav-link active" id="pills-disabled-element-design-tab" data-bs-toggle="pill"
+                          href="#pills-disabled-element-design" role="tab"
+                          aria-controls="pills-disabled-element-design" aria-selected="true">Design</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" id="pills-disabled-element-html-tab" data-bs-toggle="pill"
+                          href="#pills-disabled-element-html" role="tab"
+                          aria-controls="pills-disabled-element-html" aria-selected="false">HTML</a>
+                      </li>
+                    </ul>
+                    <div class="tab-content p-4" id="pills-tabContent-disabled-element">
+                      <div class="tab-pane tab-example-design fade show active" id="pills-disabled-element-design"
+                        role="tabpanel" aria-labelledby="pills-disabled-element-design-tab">
+                        <span class="d-inline-block" tabindex="0" data-bs-toggle="popover" data-bs-trigger="hover focus" data-bs-content="Disabled popover">
+                          <button class="btn btn-primary" type="button" disabled>Disabled button</button>
+                        </span>
+                      </div>
+                      <div class="tab-pane tab-example-html fade" id="pills-disabled-element-html" role="tabpanel"
+                        aria-labelledby="pills-disabled-element-html-tab">
+                            <pre><code class="language-markup"> <span class="token comment">&lt;!-- disabled-element --&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>d-inline-block<span class="token punctuation">"</span></span> <span class="token attr-name">tabindex</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>0<span class="token punctuation">"</span></span> <span class="token attr-name">data-bs-toggle</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>popover<span class="token punctuation">"</span></span> <span class="token attr-name">data-bs-trigger</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>hover focus<span class="token punctuation">"</span></span> <span class="token attr-name">data-bs-content</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Disabled popover<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>btn btn-primary<span class="token punctuation">"</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>button<span class="token punctuation">"</span></span> <span class="token attr-name">disabled</span><span class="token punctuation">&gt;</span></span>Disabled button<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">&gt;</span></span></code></pre>
+
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+         
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+
+  <!-- Libs JS -->
+<script src="../assets/libs/jquery/dist/jquery.min.js"></script>
+<script src="../assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../assets/libs/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+<script src="../assets/libs/feather-icons/dist/feather.min.js"></script>
+<script src="../assets/libs/prismjs/prism.js"></script>
+<script src="../assets/libs/apexcharts/dist/apexcharts.min.js"></script>
+<script src="../assets/libs/dropzone/dist/min/dropzone.min.js"></script>
+<script src="../assets/libs/prismjs/plugins/toolbar/prism-toolbar.min.js"></script>
+<script src="../assets/libs/prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
+
+
+
+
+<!-- Theme JS -->
+<script src="../assets/js/theme.min.js"></script>
+</body>
+
+</html>
