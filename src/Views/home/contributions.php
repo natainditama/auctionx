@@ -101,25 +101,33 @@ $maxActivity = $length > 3 ? 3 : $length;
                       </tr>
                     </thead>
                     <tbody class="">
-                      <?php $i = 1; ?>
-                      <?php foreach ($model['history'] as $history) : ?>
+                      <?php if ($length > 0) : ?>
+                        <?php $i = 1; ?>
+                        <?php foreach ($model['history'] as $history) : ?>
+                          <tr>
+                            <td scope="row" class="d-flex align-items-center">
+                              <span class="me-5 pe-2"> <?= $i++; ?></span>
+                              <div class="d-flex align-items-center">
+                                <div class="avatar avatar-md">
+                                  <a href="#!"> <img src="./assets/images/avatar/avatar-<?= $i; ?>.jpg" alt="Image" class="rounded-circle"> </a>
+                                </div>
+                                <div class="ms-3">
+                                  <h5 class="mb-0"><a href="#!" class="text-inherit"><?= $history['nama_lengkap'] ?></a> </h5>
+                                </div>
+                              </div>
+                            </td>
+                            <td>
+                              <span>Rp <?= number_format((int) $history['penawaran_harga'], 2, ".", ","); ?></span>
+                            </td>
+                          </tr>
+                        <?php endforeach; ?>
+                      <?php else : ?>
                         <tr>
-                          <td scope="row" class="d-flex align-items-center">
-                            <span class="me-5 pe-2"> <?= $i++; ?></span>
-                            <div class="d-flex align-items-center">
-                              <div class="avatar avatar-md">
-                                <a href="#!"> <img src="./assets/images/avatar/avatar-<?= $i; ?>.jpg" alt="Image" class="rounded-circle"> </a>
-                              </div>
-                              <div class="ms-3">
-                                <h5 class="mb-0"><a href="#!" class="text-inherit"><?= $history['nama_lengkap'] ?></a> </h5>
-                              </div>
-                            </div>
-                          </td>
-                          <td>
-                            <span>Rp <?= number_format((int) $history['penawaran_harga'], 2, ".", ","); ?></span>
+                          <td colspan="2">
+                            <p class="text-center my-3"><?= $model["auction"]["nama_barang"] ?> auctions have no contributors</p>
                           </td>
                         </tr>
-                      <?php endforeach; ?>
+                      <?php endif; ?>
                     </tbody>
                   </table>
                 </div>
@@ -151,35 +159,39 @@ $maxActivity = $length > 3 ? 3 : $length;
           <div class="card">
             <div class="card-header d-flex justify-content-between align-items-center">
               <div>
-                <h4 class="mb-0">Recent Activity</h4>
+                <h4 class="mb-0">Top contributors</h4>
               </div>
               <div><a href="./auction/<?= $model['auction']['id_barang']; ?>/contributions" class="btn btn-primary btn-sm">View All</a></div>
             </div>
             <div class="card-body py-3">
               <ul class="list-group list-group-flush ">
-                <?php for ($i = 0; $i < $maxActivity; $i++) : ?>
-                  <li class="list-group-item p-0 border-0 mb-3">
-                    <div class="row position-relative">
-                      <div class="col-auto pe-0 d-flex align-items-center">
-                        <div class="avatar avatar-md">
-                          <a href="#"><img src="./assets/images/avatar/avatar-<?= $i + 1; ?>.jpg" alt="Image" class="rounded-circle"></a>
+                <?php if ($length > 0) : ?>
+                  <?php for ($i = 0; $i < $maxActivity; $i++) : ?>
+                    <li class="list-group-item p-0 border-0 mb-3">
+                      <div class="row position-relative">
+                        <div class="col-auto pe-0 d-flex align-items-center">
+                          <div class="avatar avatar-md">
+                            <a href="#"><img src="./assets/images/avatar/avatar-<?= $i + 1; ?>.jpg" alt="Image" class="rounded-circle"></a>
+                          </div>
+                        </div>
+                        <div class="col-auto">
+                          <h4 class="mb-1 h5">
+                            <a href="#"><?= $model['history'][$i]['nama_lengkap']; ?></a>
+                          </h4>
+                          <p class="mb-0 text-muted">Rp <?= number_format((int) $model['history'][$i]['penawaran_harga'], 2, ",", "."); ?></p>
                         </div>
                       </div>
-                      <div class="col-auto">
-                        <h4 class="mb-1 h5">
-                          <a href="#"><?= $model['history'][$i]['nama_lengkap']; ?></a>
-                        </h4>
-                        <p class="mb-0 text-muted">Rp <?= number_format((int) $model['history'][$i]['penawaran_harga'], 2, ",", "."); ?></p>
-                      </div>
-                    </div>
-                  </li>
-                <?php endfor; ?>
+                    </li>
+                  <?php endfor; ?>
+                <?php else : ?>
+                  <p class="mb-0"><?= $model["auction"]["nama_barang"] ?> auctions have no contributors</p>
+                <?php endif; ?>
                 <hr class="mb-4">
                 <li class="list-group-item p-0 border-0">
                   <div class="position-relative">
                     <div class="">
-                      <?php if ($dateNow > $dueDate|| $model['auction']['status'] == "ditutup") : ?>
-                        <p class="mb-0">Auction <?= $model["auction"]["nama_barang"] ?> has closed</p>
+                      <?php if ($dateNow > $dueDate || $model['auction']['status'] == "ditutup") : ?>
+                        <p><?= $model["auction"]["nama_barang"] ?> auctions has closed</p>
                       <?php else :  ?>
                         <form method="POST" action="./auction/<?= $model['auction']['id_barang']; ?>">
                           <label class="form-label">Price quotation <span class="text-danger">*</span></label>

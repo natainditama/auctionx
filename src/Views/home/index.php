@@ -19,7 +19,8 @@ require_once __DIR__ . '/../components/navbar.php';
           </select>
         </div>
       </div>
-      <?php foreach ($model['products'] as $key => $row) : ?>
+    </div>
+    <?php foreach ($model['products'] as $key => $row) : ?>
         <?php $dueDate = new DateTime($row["tgl_ditutup"]); ?>
         <div class="col-xxl-3 col-xl-4 col-lg-6 col-md-6 col-sm-12 mb-5">
           <div class="card h-100">
@@ -90,6 +91,5 @@ require_once __DIR__ . '/../components/navbar.php';
           </div>
         </div>
       <?php endforeach; ?>
-    </div>
   </div>
 </div>
