@@ -2,27 +2,25 @@
 require_once __DIR__ . '/../components/navbar.php';
 ?>
 
-<div class="container mt-5">
+<div class="container mt-5 flex-grow-1">
   <div class="row mt-6">
     <div class="col-lg-12 col-md-12 col-12">
       <div class="row justify-content-md-between mb-5 mb-xl-0 ">
-        <div class="col"> <!-- title -->
+        <div class="col">
           <div class="mb-4">
             <h3 class="mb-0">Auctions List</h3>
           </div>
         </div>
-        <div class="col-xxl-1 col-lg-2 col-md-6 col-12 ">
+        <div class="col-xxl-auto col-lg-auto col-md-auto col-12">
           <select class="form-select">
-            <option value="">Filter</option>
-            <option value="In Progress">In Progress</option>
-            <option value="Finished">Finished</option>
+            <option value="">Filter by status</option>
+            <option value="dibuka">Opened</option>
+            <option value="ditutup">Closed</option>
           </select>
         </div>
       </div>
       <?php foreach ($model['products'] as $key => $row) : ?>
-        <?php
-        $dueDate = new DateTime($row["tgl_ditutup"]);
-        ?>
+        <?php $dueDate = new DateTime($row["tgl_ditutup"]); ?>
         <div class="col-xxl-3 col-xl-4 col-lg-6 col-md-6 col-sm-12 mb-5">
           <div class="card h-100">
             <div class="card-body">
@@ -72,7 +70,7 @@ require_once __DIR__ . '/../components/navbar.php';
                   <?php if ($row['status'] == "dibuka") : ?>
                     <span class="badge p-2 bg-success">Opened</span>
                   <?php elseif ($row['status'] == "ditutup") : ?>
-                    <span class="badge bg-danger">Closed</span>
+                    <span class="badge p-2 bg-danger">Closed</span>
                   <?php endif; ?>
                 </div>
               </div>

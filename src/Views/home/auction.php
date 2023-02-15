@@ -1,24 +1,22 @@
 <?php require_once __DIR__ . "/../components/navbar.php"; ?>
 <?php
-$timeZone = new DateTimeZone("Asia/Makassar");
-$dateNow = new DateTime("now", $timeZone);
-$startDate = new DateTime($model["auction"]["tgl_dibuka"], $timeZone);
-$dueDate = new DateTime($model["auction"]["tgl_ditutup"], $timeZone);
-$interval = $dateNow->diff($dueDate, true);
-$price = (int) $model["auction"]["harga_awal"]; // price in dollar us
+$dateNow = new DateTime("now");
+$startDate = new DateTime($model["auction"]["tgl_dibuka"]);
+$dueDate = new DateTime($model["auction"]["tgl_ditutup"]);
+$interval = $dateNow->diff($dueDate, false);
+$price = (int) $model["auction"]["harga_awal"];
 $price = number_format($price, 2, ",", ".");
+$length = count($model['history']);
+$maxActivity = $length > 3 ? 3 : $length;
 ?>
 
 <div class="bg-white pt-8 mb-6">
   <div class="container">
     <div class="row">
       <div class="col-lg-12 col-md-12 col-12">
-        <!-- Page header -->
-        <div class="d-lg-flex
-                align-items-center justify-content-between mb-6">
+        <div class="d-lg-flex align-items-center justify-content-between mb-6">
           <div class="mb-6 mb-lg-0">
             <div class="d-flex align-items-center">
-              <!-- <img src="./assets/images/brand/logo/brand-logo.png" alt="Image" class="icon-shape icon-md"> -->
               <div class="ms-0">
                 <h1 class="h3 "><?= $model["auction"]["nama_barang"] ?></h1>
                 <span>
@@ -141,7 +139,7 @@ $price = number_format($price, 2, ",", ".");
                     </div>
                     <div>
                       <div>
-                        <p class="text-dark mb-0"><?= $interval->format('%m months %d days'); ?></p>
+                        <p class="text-dark mb-0"><?= $interval->format('%r%a days %r%h hours'); ?></p>
                       </div>
                     </div>
                   </div>
@@ -165,15 +163,15 @@ $price = number_format($price, 2, ",", ".");
           </div>
         </div>
       </div>
-
     </div>
+
     <div class="col-md-12 col-xl-4 col-12">
       <div class="card mb-5 bg-dark">
         <div class="card-body">
           <h4 class="mb-0 text-white">Due Date</h4>
           <div class="d-flex justify-content-between align-items-center mt-8">
             <div>
-              <h3 class="display-5 fw-bold text-white mb-1"><?= $interval->format('%d'); ?> Days</h3>
+              <h3 class="display-5 fw-bold text-white mb-1"><?= $interval->format('%r%d'); ?> Days</h3>
               <p class="mb-0 text-white"><?= $dueDate->format("d F, l"); ?></p>
             </div>
             <div>
@@ -196,7 +194,7 @@ $price = number_format($price, 2, ",", ".");
           </div>
           <div class="card-body py-3">
             <ul class="list-group list-group-flush ">
-              <?php for ($i = 0; $i < 3; $i++) : ?>
+              <?php for ($i = 0; $i < $maxActivity; $i++) : ?>
                 <li class="list-group-item p-0 border-0 mb-3">
                   <div class="row position-relative">
                     <div class="col-auto pe-0 d-flex align-items-center">
@@ -217,7 +215,7 @@ $price = number_format($price, 2, ",", ".");
               <li class="list-group-item p-0 border-0">
                 <div class="position-relative">
                   <div class="">
-                    <?php if ($interval->invert) : ?>
+                    <?php if ($dateNow > $dueDate || $model['auction']['status'] == "ditutup") : ?>
                       <p>Auction <?= $model["auction"]["nama_barang"] ?> has closed</p>
                     <?php else :  ?>
                       <form method="POST" action="./auction/<?= $model['auction']['id_barang']; ?>">

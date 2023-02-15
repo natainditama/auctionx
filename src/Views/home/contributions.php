@@ -1,29 +1,22 @@
 <?php require_once __DIR__ . "/../components/navbar.php"; ?>
 <?php
 $dateNow = new DateTime();
-$startDate = new DateTime($model["auction"]["tgl_dibuka"]);
 $dueDate = new DateTime($model["auction"]["tgl_ditutup"]);
 $interval = $dateNow->diff($dueDate);
-$price = (int) $model["auction"]["harga_awal"]; // price in dollar us
-$price = $price * 15_000; // price in rupiah
-$price = number_format($price, 2, ",", ".");
+$length = count($model['history']);
+$maxActivity = $length > 3 ? 3 : $length;
 ?>
-
-
 
 <div class="">
   <div class="bg-white pt-8 mb-6">
     <div class="container">
       <div class="row">
         <div class="col-lg-12 col-md-12 col-12">
-          <!-- Page header -->
-          <div class="d-lg-flex
-                align-items-center justify-content-between mb-6">
+          <div class="d-lg-flex align-items-center justify-content-between mb-6">
             <div class="mb-6 mb-lg-0">
               <div class="d-flex align-items-center">
-                <img src="./assets/images/brand/logo/brand-logo.png" alt="Image" class="icon-shape icon-md">
-                <div class="ms-4">
-                  <h1 class="h3 "><?= $model["auction"]["nama_barang"] ?></h1>
+                <div class="ms-0">
+                  <h1 class="h3"><?= $model["auction"]["nama_barang"] ?></h1>
                   <span>
                     <span class="fs-5"><span class="me-1"><i class="mdi mdi-domain fs-5 me-1"></i><?= $model["auction"]["nama_petugas"] ?></span> |
                       <span class="mx-1">Status:
@@ -38,49 +31,35 @@ $price = number_format($price, 2, ",", ".");
               </div>
             </div>
             <div class="d-flex align-items-center ">
-              <!-- avatar group -->
               <div class="avatar-group">
                 <span class="avatar avatar-md">
-                  <!-- avatar  -->
                   <img alt="avatar" src="./assets/images/avatar/avatar-11.jpg" class="rounded-circle imgtooltip" data-template="one">
                   <span id="one" class="d-none">
                     <small class="mb-0 ">Paul Haney</small>
                   </span>
                 </span>
-                <!-- avatar  -->
                 <span class="avatar avatar-md">
                   <img alt="avatar" src="./assets/images/avatar/avatar-2.jpg" class="rounded-circle imgtooltip" data-template="two">
                   <span id="two" class="d-none">
                     <small class="mb-0 ">Gali Linear</small>
                   </span>
                 </span>
-                <!-- avatar  -->
                 <span class="avatar avatar-md">
                   <img alt="avatar" src="./assets/images/avatar/avatar-3.jpg" class="rounded-circle imgtooltip" data-template="three">
                   <span id="three" class="d-none">
                     <small class="mb-0 ">Mary Holler</small>
                   </span>
                 </span>
-                <!-- avatar  -->
                 <span class="avatar avatar-md">
                   <img alt="avatar" src="./assets/images/avatar/avatar-4.jpg" class="rounded-circle imgtooltip" data-template="four">
                   <span id="four" class="d-none">
                     <small class="mb-0 ">Lio Nordal</small>
                   </span>
                 </span>
-                <!-- avatar  -->
                 <span class="avatar avatar-md">
-                  <span class="avatar-initials
-                        rounded-circle bg-light
-                        text-dark">5+</span>
+                  <span class="avatar-initials rounded-circle bg-light text-dark">5+</span>
                 </span>
               </div>
-              <!-- icon  -->
-              <!-- <a href="#!" class="btn btn-icon btn-white border border-2 rounded-circle btn-dashed ms-2" data-template="inviteMember" data-bs-toggle="modal" data-bs-target="#inviteMemberModal">
-
-                +
-
-              </a> -->
             </div>
           </div>
           <div class="col-12">
@@ -116,30 +95,30 @@ $price = number_format($price, 2, ",", ".");
                       <tr>
                         <th scope="col">
                           <span>#</span>
-                          <span class="ms-3">Username</span>
+                          <span class="ms-5">Username</span>
                         </th>
                         <th scope="col">Price</th>
                       </tr>
                     </thead>
                     <tbody class="">
-                      <?php $i=1; ?>
-                      <?php foreach($model['history'] as $history) : ?>
-                      <tr>
-                        <td scope="row" class="d-flex align-items-center">
-                          <span class="me-3"> <?= $i++; ?></span>
-                          <div class="d-flex align-items-center">
-                            <div class="avatar avatar-md">
-                              <a href="#!"> <img src="./assets/images/avatar/avatar-<?= $i; ?>.jpg" alt="Image" class="rounded-circle"> </a>
+                      <?php $i = 1; ?>
+                      <?php foreach ($model['history'] as $history) : ?>
+                        <tr>
+                          <td scope="row" class="d-flex align-items-center">
+                            <span class="me-5 pe-2"> <?= $i++; ?></span>
+                            <div class="d-flex align-items-center">
+                              <div class="avatar avatar-md">
+                                <a href="#!"> <img src="./assets/images/avatar/avatar-<?= $i; ?>.jpg" alt="Image" class="rounded-circle"> </a>
+                              </div>
+                              <div class="ms-3">
+                                <h5 class="mb-0"><a href="#!" class="text-inherit"><?= $history['nama_lengkap'] ?></a> </h5>
+                              </div>
                             </div>
-                            <div class="ms-2">
-                              <h5 class="mb-0"><a href="#!" class="text-inherit"><?= $history['nama_lengkap'] ?></a> </h5>
-                            </div>
-                          </div>
-                        </td>
-                        <td>
-                          <span>Rp <?= number_format((int) $history['penawaran_harga'], 2, ".", ","); ?></span>
-                        </td>
-                      </tr>
+                          </td>
+                          <td>
+                            <span>Rp <?= number_format((int) $history['penawaran_harga'], 2, ".", ","); ?></span>
+                          </td>
+                        </tr>
                       <?php endforeach; ?>
                     </tbody>
                   </table>
@@ -148,7 +127,6 @@ $price = number_format($price, 2, ",", ".");
             </div>
           </div>
         </div>
-
       </div>
       <div class="col-md-12 col-xl-4 col-12">
         <div class="card mb-5 bg-dark">
@@ -156,7 +134,7 @@ $price = number_format($price, 2, ",", ".");
             <h4 class="mb-0 text-white">Due Date</h4>
             <div class="d-flex justify-content-between align-items-center mt-8">
               <div>
-                <h3 class="display-5 fw-bold text-white mb-1"><?= $interval->d; ?> Days</h3>
+                <h3 class="display-5 fw-bold text-white mb-1"><?= $interval->format('%r%d'); ?> Days</h3>
                 <p class="mb-0 text-white"><?= $dueDate->format("d F, l"); ?></p>
               </div>
               <div>
@@ -168,9 +146,62 @@ $price = number_format($price, 2, ",", ".");
             </div>
           </div>
         </div>
+
+        <?php if (isset($model['auth']['level']) && $model['auth']['level'] == 'masyarakat') :  ?>
+          <div class="card">
+            <div class="card-header d-flex justify-content-between align-items-center">
+              <div>
+                <h4 class="mb-0">Recent Activity</h4>
+              </div>
+              <div><a href="./auction/<?= $model['auction']['id_barang']; ?>/contributions" class="btn btn-primary btn-sm">View All</a></div>
+            </div>
+            <div class="card-body py-3">
+              <ul class="list-group list-group-flush ">
+                <?php for ($i = 0; $i < $maxActivity; $i++) : ?>
+                  <li class="list-group-item p-0 border-0 mb-3">
+                    <div class="row position-relative">
+                      <div class="col-auto pe-0 d-flex align-items-center">
+                        <div class="avatar avatar-md">
+                          <a href="#"><img src="./assets/images/avatar/avatar-<?= $i + 1; ?>.jpg" alt="Image" class="rounded-circle"></a>
+                        </div>
+                      </div>
+                      <div class="col-auto">
+                        <h4 class="mb-1 h5">
+                          <a href="#"><?= $model['history'][$i]['nama_lengkap']; ?></a>
+                        </h4>
+                        <p class="mb-0 text-muted">Rp <?= number_format((int) $model['history'][$i]['penawaran_harga'], 2, ",", "."); ?></p>
+                      </div>
+                    </div>
+                  </li>
+                <?php endfor; ?>
+                <hr class="mb-4">
+                <li class="list-group-item p-0 border-0">
+                  <div class="position-relative">
+                    <div class="">
+                      <?php if ($dateNow > $dueDate|| $model['auction']['status'] == "ditutup") : ?>
+                        <p class="mb-0">Auction <?= $model["auction"]["nama_barang"] ?> has closed</p>
+                      <?php else :  ?>
+                        <form method="POST" action="./auction/<?= $model['auction']['id_barang']; ?>">
+                          <label class="form-label">Price quotation <span class="text-danger">*</span></label>
+                          <div class="d-flex">
+                            <input type="hidden" name="id_lelang" value="<?= $model['auction']['id_lelang']; ?>">
+                            <input type="hidden" name="id_barang" value="<?= $model['auction']['id_barang']; ?>">
+                            <input type="hidden" name="id_user" value="<?= $model['auth']['id']; ?>">
+                            <input class="form-control" name="price" type="number" min="<?= $model["auction"]["harga_awal"]; ?>" placeholder="Enter price quotation" required>
+                            <button type="submit" class="btn btn-icon btn-primary border border-2 rounded-circle btn-dashed ms-2">
+                              +
+                            </button>
+                          </div>
+                        </form>
+                      <?php endif; ?>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        <?php endif; ?>
       </div>
     </div>
   </div>
-
-
 </div>

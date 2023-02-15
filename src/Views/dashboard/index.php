@@ -1,4 +1,4 @@
-<div id="db-wrapper">
+<div id="db-wrapper" class="toggled">
   <?php require_once __DIR__ . "/../components/dashboard/sidebar.php"; ?>
   <div id="page-content">
     <?php require_once __DIR__ . "/../components/navbar.php"; ?>
@@ -9,7 +9,7 @@
           <div>
             <div class="d-flex justify-content-between align-items-center">
               <div class="mb-2 mb-lg-0">
-                <h3 class="mb-0 text-white">Projects</h3>
+                <h3 class="mb-0 text-white">Auctions</h3>
               </div>
               <div>
                 <a href="#" class="btn btn-white">Create New Project</a>
@@ -17,7 +17,27 @@
             </div>
           </div>
         </div>
-        <div class="col-xl-4 col-lg-6 col-md-12 col-12 mt-6">
+      </div>
+      <div class="bg-white rounded-3 mt-4">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-12">
+            <div class="p-6 d-lg-flex justify-content-between align-items-center ">
+              <div class="d-md-flex align-items-center">
+                <img src="./assets/images/avatar/avatar-3.jpg" alt="Image" class="rounded-circle avatar avatar-xl">
+                <div class="ms-md-4 mt-3 mt-md-0 lh-1">
+                  <h3 class="">Welcome back <?= $model['auth']['name'] ?>!</h3>
+                  <span> Here is what's happening with your auctions today:</span>
+                </div>
+              </div>
+              <div class="d-none d-lg-block">
+                <a href="#!" class="btn btn-primary">What's New!</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xl-4 col-lg-6 col-md-12 col-12 mt-5">
           <div class="card">
             <div class="card-body">
               <div class="d-flex justify-content-between align-items-center mb-3">
@@ -35,7 +55,7 @@
             </div>
           </div>
         </div>
-        <div class="col-xl-4 col-lg-6 col-md-12 col-12 mt-6">
+        <div class="col-xl-4 col-lg-6 col-md-12 col-12 mt-5">
           <div class="card">
             <div class="card-body">
               <div class="d-flex justify-content-between align-items-center mb-3">
@@ -53,7 +73,7 @@
             </div>
           </div>
         </div>
-        <div class="col-xl-4 col-lg-6 col-md-12 col-12 mt-6">
+        <div class="col-xl-4 col-lg-6 col-md-12 col-12 mt-5">
           <div class="card">
             <div class="card-body">
               <div class="d-flex justify-content-between align-items-center mb-3">
@@ -75,30 +95,25 @@
       <div class="row mt-6">
         <div class="col-md-12 col-12">
           <div class="card">
-            <div class="card-header bg-white py-4">
-              <h4 class="mb-0">Active Projects</h4>
+            <div class="card-header bg-white py-4 d-flex justify-content-between">
+              <h4 class="mb-0">Active Auctions</h4>
+              <a href="#" class="link-primary">View All Auctions</a>
             </div>
             <div class="table-responsive">
               <table class="table text-nowrap mb-0">
                 <thead class="table-light">
                   <tr>
-                    <th>Project name</th>
+                    <th>Product name</th>
                     <th>Hours</th>
-                    <th>priority</th>
-                    <th>Members</th>
-                    <th>Progress</th>
+                    <th>Status</th>
+                    <th>Contributors</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
                     <td class="align-middle">
                       <div class="d-flex align-items-center">
-                        <div>
-                          <div class="icon-shape icon-md border p-4 rounded-1">
-                            <img src="assets/images/brand/dropbox-logo.svg" alt="" />
-                          </div>
-                        </div>
-                        <div class="ms-3 lh-1">
+                        <div class="ms-0 lh-1">
                           <h5 class="mb-1">
                             <a href="#" class="text-inherit">Dropbox Design System</a>
                           </h5>
@@ -123,232 +138,9 @@
                         </span>
                       </div>
                     </td>
-                    <td class="align-middle text-dark">
-                      <div class="float-start me-3">15%</div>
-                      <div class="mt-2">
-                        <div class="progress" style="height: 5px">
-                          <div class="progress-bar" role="progressbar" style="width: 15%" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td class="align-middle">
-                      <div class="d-flex align-items-center">
-                        <div>
-                          <div class="icon-shape icon-md border p-4 rounded-1">
-                            <img src="assets/images/brand/slack-logo.svg" alt="" />
-                          </div>
-                        </div>
-                        <div class="ms-3 lh-1">
-                          <h5 class="mb-1">
-                            <a href="#" class="text-inherit">Slack Team UI Design</a>
-                          </h5>
-                        </div>
-                      </div>
-                    </td>
-                    <td class="align-middle">47</td>
-                    <td class="align-middle"><span class="badge bg-danger">High</span></td>
-                    <td class="align-middle">
-                      <div class="avatar-group">
-                        <span class="avatar avatar-sm">
-                          <img alt="avatar" src="assets/images/avatar/avatar-4.jpg" class="rounded-circle" />
-                        </span>
-                        <span class="avatar avatar-sm">
-                          <img alt="avatar" src="assets/images/avatar/avatar-5.jpg" class="rounded-circle" />
-                        </span>
-                        <span class="avatar avatar-sm">
-                          <img alt="avatar" src="assets/images/avatar/avatar-6.jpg" class="rounded-circle" />
-                        </span>
-                        <span class="avatar avatar-sm avatar-primary">
-                          <span class="avatar-initials rounded-circle fs-6">+5</span>
-                        </span>
-                      </div>
-                    </td>
-                    <td class="align-middle text-dark">
-                      <div class="float-start me-3">35%</div>
-                      <div class="mt-2">
-                        <div class="progress" style="height: 5px">
-                          <div class="progress-bar" role="progressbar" style="width: 35%" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td class="align-middle">
-                      <div class="d-flex align-items-center">
-                        <div>
-                          <div class="icon-shape icon-md border p-4 rounded-1">
-                            <img src="assets/images/brand/github-logo.svg" alt="" />
-                          </div>
-                        </div>
-                        <div class="ms-3 lh-1">
-                          <h5 class="mb-1">
-                            <a href="#" class="text-inherit">GitHub Satellite</a>
-                          </h5>
-                        </div>
-                      </div>
-                    </td>
-                    <td class="align-middle">120</td>
-                    <td class="align-middle"><span class="badge bg-info">Low</span></td>
-                    <td class="align-middle">
-                      <div class="avatar-group">
-                        <span class="avatar avatar-sm">
-                          <img alt="avatar" src="assets/images/avatar/avatar-7.jpg" class="rounded-circle" />
-                        </span>
-                        <span class="avatar avatar-sm">
-                          <img alt="avatar" src="assets/images/avatar/avatar-8.jpg" class="rounded-circle" />
-                        </span>
-                        <span class="avatar avatar-sm">
-                          <img alt="avatar" src="assets/images/avatar/avatar-9.jpg" class="rounded-circle" />
-                        </span>
-                        <span class="avatar avatar-sm avatar-primary">
-                          <span class="avatar-initials rounded-circle fs-6">+1</span>
-                        </span>
-                      </div>
-                    </td>
-                    <td class="align-middle text-dark">
-                      <div class="float-start me-3">75%</div>
-                      <div class="mt-2">
-                        <div class="progress" style="height: 5px">
-                          <div class="progress-bar" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td class="align-middle">
-                      <div class="d-flex align-items-center">
-                        <div>
-                          <div class="icon-shape icon-md border p-4 rounded-1">
-                            <img src="assets/images/brand/3dsmax-logo.svg" alt="" />
-                          </div>
-                        </div>
-                        <div class="ms-3 lh-1">
-                          <h5 class="mb-1">
-                            <a href="#" class="text-inherit">3D Character Modelling</a>
-                          </h5>
-                        </div>
-                      </div>
-                    </td>
-                    <td class="align-middle">89</td>
-                    <td class="align-middle"><span class="badge bg-warning">Medium</span></td>
-                    <td class="align-middle">
-                      <div class="avatar-group">
-                        <span class="avatar avatar-sm">
-                          <img alt="avatar" src="assets/images/avatar/avatar-10.jpg" class="rounded-circle" />
-                        </span>
-                        <span class="avatar avatar-sm">
-                          <img alt="avatar" src="assets/images/avatar/avatar-11.jpg" class="rounded-circle" />
-                        </span>
-                        <span class="avatar avatar-sm">
-                          <img alt="avatar" src="assets/images/avatar/avatar-12.jpg" class="rounded-circle" />
-                        </span>
-                        <span class="avatar avatar-sm avatar-primary">
-                          <span class="avatar-initials rounded-circle fs-6">+5</span>
-                        </span>
-                      </div>
-                    </td>
-                    <td class="align-middle text-dark">
-                      <div class="float-start me-3">63%</div>
-                      <div class="mt-2">
-                        <div class="progress" style="height: 5px">
-                          <div class="progress-bar" role="progressbar" style="width: 63%" aria-valuenow="63" aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td class="align-middle">
-                      <div class="d-flex align-items-center">
-                        <div>
-                          <div class="icon-shape icon-md border p-4 rounded bg-primary">
-                            <img src="assets/images/brand/layers-logo.svg" alt="" />
-                          </div>
-                        </div>
-                        <div class="ms-3 lh-1">
-                          <h5 class="mb-1">
-                            <a href="#" class="text-inherit">Webapp Design System</a>
-                          </h5>
-                        </div>
-                      </div>
-                    </td>
-                    <td class="align-middle">108</td>
-                    <td class="align-middle"><span class="badge bg-success">Track</span></td>
-                    <td class="align-middle">
-                      <div class="avatar-group">
-                        <span class="avatar avatar-sm">
-                          <img alt="avatar" src="assets/images/avatar/avatar-13.jpg" class="rounded-circle" />
-                        </span>
-                        <span class="avatar avatar-sm">
-                          <img alt="avatar" src="assets/images/avatar/avatar-14.jpg" class="rounded-circle" />
-                        </span>
-                        <span class="avatar avatar-sm">
-                          <img alt="avatar" src="assets/images/avatar/avatar-15.jpg" class="rounded-circle" />
-                        </span>
-                        <span class="avatar avatar-sm avatar-primary">
-                          <span class="avatar-initials rounded-circle fs-6">+5</span>
-                        </span>
-                      </div>
-                    </td>
-                    <td class="align-middle text-dark">
-                      <div class="float-start me-3">100%</div>
-                      <div class="mt-2">
-                        <div class="progress" style="height: 5px">
-                          <div class="progress-bar bg-success" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td class="align-middle border-bottom-0">
-                      <div class="d-flex align-items-center">
-                        <div>
-                          <div class="icon-shape icon-md border p-4 rounded-1">
-                            <img src="assets/images/brand/github-logo.svg" alt="" />
-                          </div>
-                        </div>
-                        <div class="ms-3 lh-1">
-                          <h5 class="mb-1">
-                            <a href="#" class="text-inherit">Github Event Design</a>
-                          </h5>
-                        </div>
-                      </div>
-                    </td>
-                    <td class="align-middle border-bottom-0">120</td>
-                    <td class="align-middle border-bottom-0">
-                      <span class="badge bg-info">Low</span>
-                    </td>
-                    <td class="align-middle border-bottom-0">
-                      <div class="avatar-group">
-                        <span class="avatar avatar-sm">
-                          <img alt="avatar" src="assets/images/avatar/avatar-13.jpg" class="rounded-circle" />
-                        </span>
-                        <span class="avatar avatar-sm">
-                          <img alt="avatar" src="assets/images/avatar/avatar-14.jpg" class="rounded-circle" />
-                        </span>
-                        <span class="avatar avatar-sm">
-                          <img alt="avatar" src="assets/images/avatar/avatar-15.jpg" class="rounded-circle" />
-                        </span>
-                        <span class="avatar avatar-sm avatar-primary">
-                          <span class="avatar-initials rounded-circle fs-6">+1</span>
-                        </span>
-                      </div>
-                    </td>
-                    <td class="align-middle text-dark border-bottom-0">
-                      <div class="float-start me-3">75%</div>
-                      <div class="mt-2">
-                        <div class="progress" style="height: 5px">
-                          <div class="progress-bar" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
-                      </div>
-                    </td>
                   </tr>
                 </tbody>
               </table>
-            </div>
-            <div class="card-footer bg-white text-center">
-              <a href="#" class="link-primary">View All Projects</a>
             </div>
           </div>
         </div>
