@@ -2,6 +2,7 @@
 
 namespace NataInditama\Auctionx\Middleware;
 
+use NataInditama\Auctionx\App\Auth;
 use NataInditama\Auctionx\App\Middleware;
 use NataInditama\Auctionx\App\View;
 
@@ -9,8 +10,9 @@ class AuthMiddleware implements Middleware
 {
   function before(): void
   {
-    if (isset($_SESSION['user'])) {
-      View::redirect('./admin');
+    $isLogin = (bool) Auth::getSession();
+    if ($isLogin) {
+      View::redirect('./dashboard');
     }
   }
 }
