@@ -30,7 +30,7 @@
               <div class="px-4 pb-0 pt-2">
                 <div class="lh-1">
                   <h5 class="mb-1"><?= $model['auth']['name'] ?? "Unknown"; ?></h5>
-                  <a href="./dashboard" class="text-inherit fs-6">View my profile</a>
+                  <a href="./dashboard" class="text-inherit fs-6">View my dashboard</a>
                 </div>
                 <div class="dropdown-divider mt-3 mb-2"></div>
               </div>

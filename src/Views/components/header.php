@@ -13,6 +13,16 @@
   <link href="./assets/libs/@mdi/font/css/materialdesignicons.min.css" rel="stylesheet" />
   <link href="./assets/libs/prismjs/themes/prism-okaidia.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="./assets/css/theme.min.css">
+  <link rel="stylesheet" href="https://dashui.codescandy.com/dashuipro/assets/libs/datatables.net-bs5/css/dataTables.bootstrap5.min.css">
+  <style>
+    .dataTables_paginate, .dataTables_info, .dataTables_length, .dataTables_filter{
+      padding: 1rem 1.5rem !important;
+    }
+
+    .dataTables_wrapper .row {
+      align-items: center;
+    }
+  </style>
   <!-- Libs JS -->
   <script defer src="./assets/libs/jquery/dist/jquery.min.js"></script>
   <script defer src="./assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
@@ -26,9 +36,14 @@
   <script defer src="./assets/js/theme.min.js"></script>
 
   <title><?= SITE_NAME ?> - <?= $model['title'] ?? "Online Auctions for Arts, Antiques and Collectibles" ?> </title>
+
+  <script defer src="https://dashui.codescandy.com/dashuipro/assets/libs/datatables/media/js/jquery.dataTables.min.js"></script>
+  <script defer src="https://dashui.codescandy.com/dashuipro/assets/libs/datatables.net-bs5/js/dataTables.bootstrap5.min.js"></script>
+  <script defer src="https://dashui.codescandy.com/dashuipro/assets/libs/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+  <script defer src="https://dashui.codescandy.com/dashuipro/assets/js/vendors/datatable.js"></script>
 </head>
 
-<body class="bg-light">
+<body class="bg-light min-vh-100 d-flex flex-column" style="height: 100%;">
   <?php if (isset($model['alert'])) : ?>
     <div class="fixed-top container mt-5" style="max-width: max-content;">
       <div class="alert alert-<?= $model['alert']['type'] ?? 'warning'; ?> alert-dismissible fade show" role="alert">
