@@ -47,7 +47,9 @@
 </head>
 
 <body class="bg-light min-vh-100 d-flex flex-column" style="height: 100%;">
-  <div id="db-wrapper" class="toggled">
-    <?php require_once __DIR__ . "/../components/dashboard/sidebar.php"; ?>
-    <div id="page-content">
-      <?php require_once __DIR__ . "/../components/navbar.php"; ?>
+  <?php if ($model['showSidebar'] ?? false) : ?>
+    <div id="db-wrapper" class="toggled">
+      <?php require_once __DIR__ . "/../components/dashboard/sidebar.php"; ?>
+      <div id="page-content">
+  <?php endif; ?>
+  <?php require_once __DIR__ . "/../components/navbar.php"; ?>
