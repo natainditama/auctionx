@@ -3,10 +3,13 @@
 namespace NataInditama\Auctionx\App;
 
 use Exception;
+use NataInditama\Auctionx\Models\LevelPetugas;
+use NataInditama\Auctionx\Models\Masyarakat;
+use NataInditama\Auctionx\Models\Petugas;
 
 class Auth
 {
-  public static function do_login(object $request): object
+  public static function do_login(Masyarakat|Petugas $request): Masyarakat|Petugas
   {
     try {
       $user = $request->findByUsername($request->username);
@@ -22,7 +25,7 @@ class Auth
     }
   }
 
-  public static function do_register(object $request): void
+  public static function do_register(Masyarakat|Petugas $request): void
   {
     try {
       $user = $request->findByUsername($request->username);
@@ -35,13 +38,16 @@ class Auth
     }
   }
 
-  public static function setSession(object $user): void
+  public static function setSession(Petugas|Masyarakat $user): void
   {
     $level = "masyarakat";
-    $auth = [
-      "username" => $user->username,
-      "level" => $level,
-    ];
+    if ($user instanceof Petugas) {
+      $role = new LevelPetugas();
+      $level = $role->findByIdLevel($user->id_level)->level;
+    }
+
+    $auth = (array) $user;
+    $auth["level"] = $level;
     $_SESSION['user'] = $auth;
   }
 
