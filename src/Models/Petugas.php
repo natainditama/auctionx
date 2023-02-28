@@ -10,7 +10,7 @@ class Petugas extends Database
   var string $nama_petugas;
   var string $username;
   var string $password;
-  var string $id_level;
+  var int $id_level;
 
   public function findByUsername(string $username): ?Petugas
   {
@@ -29,7 +29,7 @@ class Petugas extends Database
     $query = "INSERT INTO `tb_petugas`(`id_petugas`, `nama_petugas`, `username`, `password`, `id_level`) VALUES ('',?,?,?,?)";
 
     $statement = $this->mysqli->prepare($query);
-    $statement->bind_param("ssss", $request->nama_petugas, $request->username, password_hash($request->password, PASSWORD_BCRYPT), $request->id_level);
+    $statement->bind_param("sssi", $request->nama_petugas, $request->username, password_hash($request->password, PASSWORD_BCRYPT), $request->id_level);
     $statement->execute();
   }
 }
