@@ -46,10 +46,22 @@
 
 </head>
 
-<body class="bg-light min-vh-100 d-flex flex-column" style="height: 100%;">
-  <?php if ($model['showSidebar'] ?? false) : ?>
+<body class="bg-light min-vh-100 d-flex flex-column pb-10" style="height: 100%;">
+  <?php
+  use NataInditama\Auctionx\App\Auth;
+  if (isset($model['alert'])) : ?>
+    <div class="fixed-top container mt-5" style="max-width: max-content;">
+      <div class="alert alert-<?= $model['alert']['type'] ?? 'warning'; ?> alert-dismissible fade show" role="alert">
+        <span class="me-4">
+          <?= $model['alert']['message']; ?>
+        </span>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+    </div>
+  <?php endif; ?>
+  <?php if (Auth::getSession()) : ?>
     <div id="db-wrapper" class="toggled">
       <?php require_once __DIR__ . "/../components/dashboard/sidebar.php"; ?>
       <div id="page-content">
-  <?php endif; ?>
-  <?php require_once __DIR__ . "/../components/navbar.php"; ?>
+      <?php endif; ?>
+      <?php require_once __DIR__ . "/../components/navbar.php"; ?>

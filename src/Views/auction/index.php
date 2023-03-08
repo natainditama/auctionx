@@ -41,20 +41,20 @@
               <div class="d-flex justify-content-between align-items-center">
                 <div class="d-flex align-items-center">
                   <div class="avatar-group">
-                    <span class="avatar avatar-sm avatar-warning imgtooltip" data-template="textFour">
-                      <span class="avatar-initials rounded-circle ">DU</span>
-                      <span id="textFour" class="d-none">
-                        <span>Dash UI Only</span>
-                      </span>
-                    </span>
                     <span class="avatar avatar-sm">
-                      <img alt="avatar" src="./assets/images/avatar/avatar-12.jpg" class="rounded-circle imgtooltip" data-template="eleven">
+                      <img alt="avatar" src="https://i.pravatar.cc/150?img=<?= rand(1, 70); ?>" class="rounded-circle imgtooltip" data-template="eleven">
                       <span id="eleven" class="d-none">
                         <span>Charlie Holland</span>
                       </span>
                     </span>
                     <span class="avatar avatar-sm">
-                      <img alt="avatar" src="./assets/images/avatar/avatar-13.jpg" class="rounded-circle imgtooltip" data-template="twelve">
+                      <img alt="avatar" src="https://i.pravatar.cc/150?img=<?= rand(1, 70); ?>" class="rounded-circle imgtooltip" data-template="eleven">
+                      <span id="eleven" class="d-none">
+                        <span>Charlie Holland</span>
+                      </span>
+                    </span>
+                    <span class="avatar avatar-sm">
+                      <img alt="avatar" src="https://i.pravatar.cc/150?img=<?= rand(1, 70); ?>" class="rounded-circle imgtooltip" data-template="twelve">
                       <span id="twelve" class="d-none">
                         <span>Jamie Lusar</span>
                       </span>

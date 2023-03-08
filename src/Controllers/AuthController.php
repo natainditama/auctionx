@@ -77,11 +77,11 @@ class AuthController
 
     public function adminRegister(): void
     {
-        View::render("admin/register");
+        View::render("auth/admin/register");
     }
 
     public function adminLogin(): void
     {
-        View::render("admin/login");
+        View::render("auth/admin/login");
     }
 }

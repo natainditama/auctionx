@@ -13,7 +13,7 @@ class View
 
   public static function redirect(string $path): void
   {
-    header("Location: $path");
+    header("Location: " . SITE_BASE_URL .  "$path");
     exit();
   }
 }

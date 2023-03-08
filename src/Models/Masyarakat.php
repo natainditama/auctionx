@@ -32,4 +32,15 @@ class Masyarakat extends Database
     $statement->bind_param("ssss", $request->nama_lengkap, $request->username, password_hash($request->password, PASSWORD_BCRYPT), $request->telp);
     $statement->execute();
   }
+
+  public function findAll(): ?array
+  {
+    $query = "SELECT `id_user`, `nama_lengkap`, `username`, `password`, `telp` FROM `tb_masyarakat` ORDER BY `id_user` DESC;";
+
+    $statement = $this->mysqli->prepare($query);
+    $statement->execute();
+
+    $result = $statement->get_result();
+    return $result->fetch_all(MYSQLI_ASSOC);
+  }
 }
