@@ -11,9 +11,14 @@ class View
     require_once __DIR__ . "/../Views/components/footer.php";
   }
 
+  public static function renderFile(string $view, array $model = []): void
+  {
+    require_once __DIR__ . "/../Views/$view.php";
+  }
+
   public static function redirect(string $path): void
   {
-    header("Location: $path");
+    header("Location: " . SITE_BASE_URL .  "$path");
     exit();
   }
 }
