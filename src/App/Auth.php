@@ -9,14 +9,14 @@ use NataInditama\Auctionx\Models\Petugas;
 
 class Auth
 {
-  public static function do_login(Masyarakat|Petugas $request): Masyarakat|Petugas
+  public static function do_login(Masyarakat|Petugas $request): ?array
   {
     try {
       $user = $request->findByUsername($request->username);
       if (is_null($user)) {
         throw new Exception("Invalid username");
       }
-      if (!password_verify($request->password, $user->password)) {
+      if (!password_verify($request->password, $user['password'])) {
         throw new Exception("Invalid username or password");
       }
       return $user;
@@ -48,6 +48,7 @@ class Auth
 
     $auth = (array) $user;
     $auth["level"] = $level;
+    $auth["password"] = null;
     $_SESSION['user'] = $auth;
   }
 
