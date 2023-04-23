@@ -7,32 +7,25 @@
             <a href="./" class="mb-2">
               <h3 class="text-primary fw-bold"><?= SITE_NAME ?></h3>
             </a>
-            <p class="mb-6">Log in to access your account</p>
+            <p class="mb-6">Log in to access premium account</p>
           </div>
-          <form method="POST" class="./login">
-            <input type="hidden" name="level" value="masyarakat">
+          <form method="post" action="./login">
+            <input type="hidden" name="level" value="admin">
             <div class="mb-3">
               <label for="username" class="form-label">Username</label>
               <input type="text" id="username" class="form-control" name="username" placeholder="Enter your username" required="" value="<?= @$_POST['username'] ?>">
             </div>
-            <div class="mb-3">
+            <div class="mb-5">
               <label for="password" class="form-label">Password</label>
               <input type="password" id="password" class="form-control" name="password" placeholder="Enter your password" required="">
             </div>
-            <div class="mb-5">
-              <label for="level" class="form-label">Level</label>
-              <select name="level" id="level" class="form-control">
-                <option value="masyarakat">Free Account</option>
-                <option value="admin">Premium Account</option>
-              </select>
-            </div>
             <div>
               <div class="d-grid">
-                <button type="submit" name="submit" class="btn btn-primary">Log in</button>
+                <button type="submit" class="btn btn-primary">Log in</button>
               </div>
               <div class="d-md-flex justify-content-between mt-4">
                 <div class="mb-2 mb-md-0">
-                  Don't have an account yet? <a href="./pricing" class="fs-5">Create an account </a>
+                  Already have free account? <a href="./login" class="fs-5">Login</a>
                 </div>
               </div>
             </div>
