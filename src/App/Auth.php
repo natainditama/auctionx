@@ -38,7 +38,7 @@ class Auth
     }
   }
 
-  public static function setSession(Petugas|Masyarakat $user): void
+  public static function setSession(array $user): void
   {
     $level = "masyarakat";
     if ($user instanceof Petugas) {
