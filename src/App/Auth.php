@@ -41,12 +41,12 @@ class Auth
   public static function setSession(array $user): void
   {
     $level = "masyarakat";
-    if ($user instanceof Petugas) {
+    if (isset($user['id_level'])) {
       $role = new LevelPetugas();
-      $level = $role->findByIdLevel($user->id_level)->level;
+      $level = $role->findByIdLevel($user['id_level'])->level;
     }
 
-    $auth = (array) $user;
+    $auth = $user;
     $auth["level"] = $level;
     $auth["password"] = null;
     $_SESSION['user'] = $auth;

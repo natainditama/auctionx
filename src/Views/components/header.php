@@ -25,6 +25,54 @@
     .dataTables_wrapper .row {
       align-items: center;
     }
+
+    .thumbnail {
+      width: 100%;
+      position: relative;
+      height: max-content;
+    }
+
+    .hover-scale-up:hover {
+      transform: scale(1.05);
+    }
+
+    .hover-scale-up {
+      transition: all 0.5s cubic-bezier(0.87, 0, 0.13, 1);
+    }
+
+    .btn-wish {
+      --size: 3rem;
+      --gap: 1rem;
+      position: absolute;
+      bottom: var(--gap);
+      right: var(--gap);
+      height: var(--size);
+      width: var(--size);
+      border-radius: 999px;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: white;
+    }
+
+    .ftco-footer-social li {
+      list-style: none;
+      margin: 0 10px 0 0;
+      display: inline-block;
+    }
+
+    .ftco-footer-social li a {
+      height: 40px;
+      width: 40px;
+      display: block;
+      background: rgba(0, 0, 0, 0.05);
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
   </style>
   <!-- Libs JS -->
   <script defer src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
@@ -42,14 +90,21 @@
   <script defer src="https://dashui.codescandy.com/dashuipro/assets/js/vendors/datatable.js"></script>
   <script defer src="./assets/js/theme.min.js"></script>
 
-  <title><?= SITE_NAME ?> - <?= $model['title'] ?? "Online Auctions for Arts, Antiques and Collectibles" ?> </title>
+  <title><?= SITE_NAME ?> - <?= $model['title'] ?? "Online Auctions for Automotive" ?> </title>
 
 </head>
 
 <body class="bg-light min-vh-100 d-flex flex-column" style="height: 100%;">
-  <?php if ($model['showSidebar'] ?? false) : ?>
+  <?php
+
+  use NataInditama\Auctionx\App\Auth;
+  use NataInditama\Auctionx\App\Flasher;
+
+  Flasher::flasher();
+  ?>
+  <?php if (Auth::getSession()) : ?>
     <div id="db-wrapper" class="toggled">
       <?php require_once __DIR__ . "/../components/dashboard/sidebar.php"; ?>
-      <div id="page-content">
-  <?php endif; ?>
-  <?php require_once __DIR__ . "/../components/navbar.php"; ?>
+      <div id="page-content" class="mb-6">
+      <?php endif; ?>
+      <?php require_once __DIR__ . "/../components/navbar.php"; ?>

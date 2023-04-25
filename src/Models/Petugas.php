@@ -12,7 +12,7 @@ class Petugas extends Database
   var string $password;
   var int $id_level;
 
-  public function findByUsername(string $username): ?Petugas
+  public function findByUsername(string $username): ?array
   {
     $query = "SELECT `id_petugas`, `nama_petugas`, `username`, `password`, `id_level` FROM `tb_petugas` WHERE `username` =  ?";
 
@@ -21,7 +21,7 @@ class Petugas extends Database
     $statement->execute();
 
     $result = $statement->get_result();
-    return $result->fetch_object(Petugas::class);
+    return $result->fetch_assoc();
   }
 
   public function save(Petugas $request): void

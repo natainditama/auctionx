@@ -12,7 +12,7 @@ class Masyarakat extends Database
   var string $password;
   var string $telp;
 
-  public function findByUsername(string $username): ?Masyarakat
+  public function findByUsername(string $username): ?array
   {
     $query = "SELECT `id_user`, `nama_lengkap`, `username`, `password`, `telp` FROM `tb_masyarakat` WHERE `username` =  ?";
 
@@ -21,7 +21,7 @@ class Masyarakat extends Database
     $statement->execute();
 
     $result = $statement->get_result();
-    return $result->fetch_object(Masyarakat::class);
+    return $result->fetch_assoc();
   }
 
   public function save(Masyarakat $request): void
@@ -31,5 +31,16 @@ class Masyarakat extends Database
     $statement = $this->mysqli->prepare($query);
     $statement->bind_param("ssss", $request->nama_lengkap, $request->username, password_hash($request->password, PASSWORD_BCRYPT), $request->telp);
     $statement->execute();
+  }
+
+  public function findAll(): ?array
+  {
+    $query = "SELECT `id_user`, `nama_lengkap`, `username`, `password`, `telp` FROM `tb_masyarakat` ORDER BY `id_user` DESC;";
+
+    $statement = $this->mysqli->prepare($query);
+    $statement->execute();
+
+    $result = $statement->get_result();
+    return $result->fetch_all(MYSQLI_ASSOC);
   }
 }
