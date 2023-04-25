@@ -4,6 +4,7 @@ namespace NataInditama\Auctionx\Controllers;
 
 use Exception;
 use NataInditama\Auctionx\App\Auth;
+use NataInditama\Auctionx\App\Flasher;
 use NataInditama\Auctionx\App\View;
 use NataInditama\Auctionx\Models\Masyarakat;
 use NataInditama\Auctionx\Models\Petugas;
@@ -25,14 +26,10 @@ class AuthController
 
             $user = Auth::do_login($request);
             Auth::setSession($user);
-            View::redirect("./login");
+            View::redirect("./");
         } catch (Exception $error) {
-            View::render("auth/login", [
-                "alert" => [
-                    "type" => "danger",
-                    "message" => $error->getMessage(),
-                ]
-            ]);
+            Flasher::setFlasher("danger", $error->getMessage());
+            View::redirect("./login");
         }
     }
 
@@ -51,37 +48,34 @@ class AuthController
             if ($request instanceof Petugas) {
                 $request->id_level = "1"; // level admin
                 $request->nama_petugas = $_POST['name'];
-            }  elseif ($request instanceof Masyarakat) {
+            } elseif ($request instanceof Masyarakat) {
                 $request->telp = $_POST['telp'];
                 $request->nama_lengkap = $_POST['name'];
             }
 
             Auth::do_register($request);
-            Auth::setSession($request);
+            $user = Auth::do_login($request);
+            Auth::setSession($user);
             View::redirect("./");
         } catch (Exception $error) {
-            View::render("auth/register", [
-                "alert" => [
-                    "type" => "danger",
-                    "message" => $error->getMessage(),
-                ]
-            ]);
+            Flasher::setFlasher("danger", $error->getMessage());
+            View::redirect("./login");
         }
     }
 
     public function logout(): void
     {
         Auth::removeSession();
-        View::redirect('./login');
+        View::redirect('./');
     }
 
     public function adminRegister(): void
     {
-        View::render("admin/register");
+        View::render("auth/admin/register");
     }
 
     public function adminLogin(): void
     {
-        View::render("admin/login");
+        View::render("auth/admin/login");
     }
 }
