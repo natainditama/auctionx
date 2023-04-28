@@ -186,3 +186,13 @@ dist
 # .pnp.*
 
 # End of https://www.toptal.com/developers/gitignore/api/composer,node,visualstudiocode,yarn
+
+# Template ignore
+node_modules/
+public/assets/
+public/docs/
+public/pages/
+public/*.html
+.temp/
+.DS_Store
+src/docs/demo-dark-light.html
