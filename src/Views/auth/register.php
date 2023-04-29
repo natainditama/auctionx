@@ -16,7 +16,7 @@
             </div>
             <div class="mb-3">
               <label for="telp" class="form-label">Telphone</label>
-              <input type="tel" id="telp" class="form-control" name="telp" placeholder="Enter your telp" required="" value="<?= @$_POST['telp']; ?>" />
+              <input type="number" id="telp" class="form-control" name="telp" placeholder="Enter your telp" required="" value="<?= @$_POST['telp']; ?>" />
             </div>
             <div class="mb-3">
               <label for="username" class="form-label">Username</label>
