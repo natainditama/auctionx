@@ -75,10 +75,10 @@ Removed sections:
 
 | Color             | Hex                                                                |
 | ----------------- | ------------------------------------------------------------------ |
-| Primary Color | ![#222831](https://via.placeholder.com/10/222831?text=+) #222831 |
-| Secondary Color | ![#393E46](https://via.placeholder.com/10/393E46?text=+) #393E46 |
-| Accent Color | ![#00ADB5](https://via.placeholder.com/10/00ADB5?text=+) #00ADB5 |
-| Text Color | ![#EEEEEE](https://via.placeholder.com/10/EEEEEE?text=+) #EEEEEE |
+| Primary Color | ![#624bff](https://via.placeholder.com/10/624bff?text=+) #624bff |
+| White Color | ![#fff](https://via.placeholder.com/10/fff?text=+) #fff |
+| Background Color | ![#f9fafb](https://via.placeholder.com/10/f9fafb?text=+) #f9fafb |
+| Text Color | ![#637381](https://via.placeholder.com/10/637381?text=+) #637381 |
 
 
 <!-- TechStack -->
