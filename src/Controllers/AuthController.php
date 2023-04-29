@@ -19,10 +19,10 @@ class AuthController
     public function postLogin(): void
     {
         try {
-            $level = $_POST['level'] ?? "masyarakat";
+            $level = htmlspecialchars($_POST['level']) ?? "masyarakat";
             $request = $level == "admin" ?  new Petugas() : new Masyarakat();
-            $request->username = $_POST['username'];
-            $request->password = $_POST['password'];
+            $request->username = htmlspecialchars($_POST['username']);
+            $request->password = htmlspecialchars($_POST['password']);
 
             $user = Auth::do_login($request);
             Auth::setSession($user);
@@ -41,16 +41,16 @@ class AuthController
     public function postRegister(): void
     {
         try {
-            $level = $_POST['level'] ?? "masyarakat";
+            $level = htmlspecialchars($_POST['level']) ?? "masyarakat";
             $request = $level == "admin" ?  new Petugas() : new Masyarakat();
-            $request->username = $_POST['username'];
-            $request->password = $_POST['password'];
+            $request->username = htmlspecialchars($_POST['username']);
+            $request->password = htmlspecialchars($_POST['password']);
             if ($request instanceof Petugas) {
                 $request->id_level = "1"; // level admin
-                $request->nama_petugas = $_POST['name'];
+                $request->nama_petugas = htmlspecialchars($_POST['name']);
             } elseif ($request instanceof Masyarakat) {
-                $request->telp = $_POST['telp'];
-                $request->nama_lengkap = $_POST['name'];
+                $request->telp = htmlspecialchars($_POST['telp']);
+                $request->nama_lengkap = htmlspecialchars($_POST['name']);
             }
 
             Auth::do_register($request);

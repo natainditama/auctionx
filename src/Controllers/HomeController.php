@@ -42,7 +42,7 @@ class HomeController
         $highest = number_format(!empty($array) ? max($array) : 0, 0, "", ".");
         $total = number_format(array_sum($array), 2, ",", ".");
         $avarage = number_format(!empty($array) ? array_sum($array) / count($array) : 0, 0, "", ".");
-        $avarageContribution = count($contribution) / count($auction) * 100;
+        $avarageContribution = !empty($contribution) && !empty($auction) ?  count($contribution) / count($auction) * 100 : 0;
 
         View::render("dashboard/index", [
           "auction" => $auction,
@@ -70,4 +70,5 @@ class HomeController
   {
     View::render("pricing");
   }
+
 }
