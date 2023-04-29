@@ -17,7 +17,7 @@ $auth = $model['auth'] ?? Auth::getSession();
       </li>
       <li class="nav-item">
         <a class="nav-link has-arrow" href="./auction">
-          <i data-feather="layers" class="nav-icon icon-xs me-2"> </i> Auction List
+          <i data-feather="layers" class="nav-icon icon-xs me-2"> </i> Auctions
         </a>
       </li>
       <?php if ($auth['level'] == "masyarakat") :  ?>
@@ -28,8 +28,8 @@ $auth = $model['auth'] ?? Auth::getSession();
         </li>
       <?php elseif ($auth['level'] == "petugas") :  ?>
         <li class="nav-item">
-          <a class="nav-link has-arrow" href="./">
-            <i data-feather="users" class="nav-icon icon-xs me-2"> </i> Subscriptions
+          <a class="nav-link has-arrow" href="./user">
+            <i data-feather="dollar-sign" class="nav-icon icon-xs me-2"> </i> Bidders
           </a>
         </li>
       <?php endif; ?>

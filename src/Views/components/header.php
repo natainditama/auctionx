@@ -74,23 +74,9 @@
       position: relative;
     }
   </style>
-  <!-- Libs JS -->
-  <script defer src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
-  <script defer src="./assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-  <script defer src="./assets/libs/jquery-slimscroll/jquery.slimscroll.min.js"></script>
-  <script defer src="./assets/libs/feather-icons/dist/feather.min.js"></script>
-  <script defer src="./assets/libs/prismjs/prism.js"></script>
-  <script defer src="./assets/libs/apexcharts/dist/apexcharts.min.js"></script>
-  <script defer src="./assets/libs/dropzone/dist/min/dropzone.min.js"></script>
-  <script defer src="./assets/libs/prismjs/plugins/toolbar/prism-toolbar.min.js"></script>
-  <script defer src="./assets/libs/prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
-  <script defer src="./assets/libs/datatables/media/js/jquery.dataTables.min.js"></script>
-  <script defer src="./assets/libs/datatables.net-bs5/js/dataTables.bootstrap5.min.js"></script>
-  <script defer src="./assets/libs/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
-  <script defer src="https://dashui.codescandy.com/dashuipro/assets/js/vendors/datatable.js"></script>
-  <script defer src="./assets/js/theme.min.js"></script>
 
-  <title><?= SITE_NAME ?> - <?= $model['title'] ?? "Online Auctions for Automotive" ?> </title>
+  <title><?= $model['title'] ?? SITE_NAME ?> - <?= "Online Auctions for Automotive and Vehicles" ?> </title>
+  <meta name="description" content="Auction is online car auctions featuring used, wholesale and repairable vehicles. Auction car auctions have something for everyone — used car buyers, dismantlers, dealers, body shops and individuals">
 
 </head>
 
