@@ -52,11 +52,17 @@ class HomeController
           "total" => $total,
           "auth" => $this->session,
         ]);
-      }
+      } elseif (isset($this->session['id_petugas']) && $this->session['level'] != "masyarakat") {
+        if ($this->session['level'] == "petugas") {
+          $auction = $this->auction->findAllByPetugasId($this->session['id_petugas']);
+        } else{
+          
+        }
 
-      View::render("dashboard/index", [
-        "auth" => $this->session,
-      ]);
+        View::render("dashboard/index", [
+          "auth" => $this->session,
+        ]);
+      }
     } else {
       $auctions = $this->auction->findAllByStatus('dibuka');
       View::render("auction/index", [

@@ -68,7 +68,7 @@ class AuctionController
       if (!is_numeric($request->harga_awal)) {
         throw new Exception("Please enter budget number only");
       }
-      
+
       $result = $this->product->save($request);
       $newAuction = new Lelang();
       $newAuction->id_barang = $result->insert_id;
@@ -172,8 +172,6 @@ class AuctionController
     $mysqli = Database::getConnection();
     $mysqli->begin_transaction();
     try {
-      $this->history->deleteByBarangId($barangId);
-      $this->auction->deleteByBarangId($barangId);
       $this->product->deleteByBarangId($barangId);
 
       $mysqli->commit();
@@ -216,7 +214,6 @@ class AuctionController
         if ($value['penawaran_harga'] >= $request->penawaran_harga) {
           throw new Exception("Your bid request must be greater");
         }
-
       }
 
       // check jika sudah membuat penawaran harga

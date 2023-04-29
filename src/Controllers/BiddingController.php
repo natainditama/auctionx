@@ -42,7 +42,6 @@ class BiddingController
 
       // Ubah harga penawaran paling tinggi
       $history = $this->history->findAllByLelangId($id_lelang);
-      var_dump($history, $id_lelang);
       if (isset($history[0])) {
         $topBiding = new HistoryLelang();
         $topBiding->penawaran_harga = $history[0]['penawaran_harga'];

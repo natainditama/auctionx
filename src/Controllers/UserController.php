@@ -93,7 +93,7 @@ class UserController
     View::render("404");
   }
   
-  public function update(string $userId, string $redirect = ""): void
+  public function update(string $userId, string $redirect = null): void
   {
     $mysqli = Database::getConnection();
     $mysqli->begin_transaction();
@@ -105,8 +105,10 @@ class UserController
       $request->nama_lengkap = htmlspecialchars($_POST['name']);
       $this->user->updateByUserId($request);
 
-      $profile = $this->user->findByUsername($this->session['username']);
-      Auth::setSession($profile);
+      if ($redirect === "profile") {
+        $profile = $this->user->findByUsername($this->session['username']);
+        Auth::setSession($profile);
+      }
 
       $mysqli->commit();
       Flasher::setFlasher("success", "Your request has been saved");
@@ -126,7 +128,7 @@ class UserController
       $this->user->deleteByUserId($userId);
 
       $mysqli->commit();
-      Flasher::setFlasher("warning", "Your request has been saved");
+      Flasher::setFlasher("warning", "Your data has been deleted");
       View::redirect("./user");
     } catch (Exception $th) {
       $mysqli->rollback();
@@ -148,7 +150,7 @@ class UserController
       Auth::do_register($request);
 
       $mysqli->commit();
-      Flasher::setFlasher("success", "Your request has been saved");
+      Flasher::setFlasher("success", "Your data has been saved");
       View::redirect("./user");
     } catch (Exception $th) {
       $mysqli->rollback();
