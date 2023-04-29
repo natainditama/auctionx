@@ -18,7 +18,7 @@
               <p class="mb-0 d-block">@<?= $model['profile']['username'] ?></p>
             </div>
           </div>
-          <?php if (isset($model['auth']) && $model['auth']['username'] == $model['profile']['username']) : ?>
+          <?php if (isset($model['auth']) && $model['auth']['username'] == $model['profile']['username'] && $model['auth']['level'] == "masyarakat") : ?>
             <div>
               <a href="./setting" class="btn btn-outline-primary d-none d-md-block">Edit Profile</a>
             </div>
@@ -83,7 +83,7 @@
         <!-- card -->
         <div class="card">
           <div class="card-header bg-white py-4">
-            <h4 class="mb-0">Auctions Contributions</h4>
+            <h4 class="mb-0">Auction Contributions</h4>
           </div>
           <!-- card body -->
           <div class="card-body pt-2">

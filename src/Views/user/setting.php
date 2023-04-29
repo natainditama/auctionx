@@ -1,83 +1,36 @@
 <div class="container mt-6">
   <div class="row mb-8">
     <div class="col-12">
-      <!-- card -->
       <div class="card">
-        <!-- card body -->
         <div class="card-body">
           <div class="mb-6">
             <h3 class="mb-1">General Settings</h3>
             <p class="mb-0 fs-5 text-muted">Profile configuration settings</p>
           </div>
           <div>
-            <!-- border -->
             <div class="mb-6">
               <h4 class="mb-1">Basic information</h4>
             </div>
-            <form>
-              <!-- row -->
-
+            <form class="./setting" method="post">
               <div class="mb-3 row">
-                <label for="fullName" class="col-sm-4 col-form-label form-label">Full name</label>
+                <label for="name" class="col-sm-4 col-form-label form-label">Full name</label>
                 <div class="col-md-8 col-12">
-                  <input type="text" class="form-control" placeholder="Full name" id="name" name="name" required="" />
+                  <input type="text" class="form-control" placeholder="Full name" id="name" name="name" required="" value="<?= $model['profile']['nama_lengkap'] ?? "" ?>" />
                 </div>
               </div>
-
-              <!-- row -->
               <div class="mb-3 row">
-                <label for="email" class="col-sm-4 col-form-label form-label">Email</label>
+                <label for="username" class="col-sm-4 col-form-label form-label">Username</label>
                 <div class="col-md-8 col-12">
-                  <input type="email" class="form-control" placeholder="Email" id="email" required="" />
+                  <input type="text" class="form-control" placeholder="Username" id="username" name="username" required="" value="<?= $model['profile']['username'] ?? "" ?>" />
                 </div>
               </div>
-              <!-- row -->
               <div class="mb-3 row">
-                <label for="phone" class="col-sm-4 col-form-label form-label">Phone <span class="text-muted">(Optional)</span></label>
+                <label for="telp" class="col-sm-4 col-form-label form-label">Telphone</label>
                 <div class="col-md-8 col-12">
-                  <input type="text" class="form-control" placeholder="Phone" id="phone" required="" />
+                  <input type="text" class="form-control" placeholder="Telphone" id="telp" name="telp" required="" value="<?= $model['profile']['telp'] ?? "" ?>" />
                 </div>
               </div>
-              <!-- row -->
-              <div class="mb-3 row">
-                <label for="location" class="col-sm-4 col-form-label form-label">Location</label>
-
-                <div class="col-md-8 col-12">
-                  <select class="form-select" id="location">
-                    <option selected="">Select Country</option>
-                    <option value="1">India</option>
-                    <option value="2">UK</option>
-                    <option value="3">USA</option>
-                  </select>
-                </div>
-              </div>
-              <!-- row -->
-              <div class="mb-3 row">
-                <label for="addressLine" class="col-sm-4 col-form-label form-label">Address line 1</label>
-
-                <div class="col-md-8 col-12">
-                  <input type="text" class="form-control" placeholder="Placeholder" id="addressLine" required="" />
-                </div>
-              </div>
-              <!-- row -->
-              <div class="mb-3 row">
-                <label for="addressLineTwo" class="col-sm-4 col-form-label form-label">Address line 2</label>
-                <div class="col-md-8 col-12">
-                  <input type="text" class="form-control" placeholder="Placeholder" id="addressLineTwo" required="" />
-                </div>
-              </div>
-              <!-- row -->
               <div class="row align-items-center">
-                <label for="zipcode" class="col-sm-4 col-form-label form-label">Zip code
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-info me-2 icon-xs">
-                    <circle cx="12" cy="12" r="10"></circle>
-                    <line x1="12" y1="16" x2="12" y2="12"></line>
-                    <line x1="12" y1="8" x2="12.01" y2="8"></line>
-                  </svg></label>
-
-                <div class="col-md-8 col-12">
-                  <input type="text" class="form-control" placeholder="Placeholder" id="zipcode" required="" />
-                </div>
                 <div class="offset-md-4 col-md-8 mt-4">
                   <button type="submit" class="btn btn-primary">Save Changes</button>
                 </div>
