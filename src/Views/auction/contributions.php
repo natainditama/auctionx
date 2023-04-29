@@ -1,10 +1,18 @@
-<?php require_once __DIR__ . "/../components/navbar.php"; ?>
 <?php
+
+use NataInditama\Auctionx\Models\HistoryLelang;
+
 $dateNow = new DateTime();
 $dueDate = new DateTime($model["auction"]["tgl_ditutup"]);
 $interval = $dateNow->diff($dueDate);
 $length = count($model['history']);
 $maxActivity = $length > 3 ? 3 : $length;
+
+$req = file_get_contents('http://localhost/web_027_nata_p4/public/data/images.json');
+$json = (array) json_decode($req);
+$makeIndex = rand(0, count($json) - 1);
+$modelIndex = rand(0, count($json[$makeIndex]->model) - 1);
+
 ?>
 
 <div class="">
@@ -32,33 +40,27 @@ $maxActivity = $length > 3 ? 3 : $length;
             </div>
             <div class="d-flex align-items-center ">
               <div class="avatar-group">
-                <span class="avatar avatar-md">
-                  <img alt="avatar" src="https://i.pravatar.cc/150?img=<?= rand(1, 70); ?>" class="rounded-circle imgtooltip" data-template="one">
-                  <span id="one" class="d-none">
-                    <small class="mb-0 ">Paul Haney</small>
-                  </span>
-                </span>
-                <span class="avatar avatar-md">
-                  <img alt="avatar" src="https://i.pravatar.cc/150?img=<?= rand(1, 70); ?>" class="rounded-circle imgtooltip" data-template="two">
-                  <span id="two" class="d-none">
-                    <small class="mb-0 ">Gali Linear</small>
-                  </span>
-                </span>
-                <span class="avatar avatar-md">
-                  <img alt="avatar" src="https://i.pravatar.cc/150?img=<?= rand(1, 70); ?>" class="rounded-circle imgtooltip" data-template="three">
-                  <span id="three" class="d-none">
-                    <small class="mb-0 ">Mary Holler</small>
-                  </span>
-                </span>
-                <span class="avatar avatar-md">
-                  <img alt="avatar" src="https://i.pravatar.cc/150?img=<?= rand(1, 70); ?>" class="rounded-circle imgtooltip" data-template="four">
-                  <span id="four" class="d-none">
-                    <small class="mb-0 ">Lio Nordal</small>
-                  </span>
-                </span>
-                <span class="avatar avatar-md">
-                  <span class="avatar-initials rounded-circle bg-light text-dark">5+</span>
-                </span>
+                <?php if (isset($model['history']) && count($model['history']) > 0) : ?>
+                  <?php $history = array_slice($model['history'], 0, 4); ?>
+                  <?php foreach ($history as $key => $row) : ?>
+                    <span class="avatar avatar-md">
+                      <img alt="avatar" src="https://i.pravatar.cc/150?img=<?= rand(1, 70); ?>" class="rounded-circle imgtooltip" data-template="one">
+                      <span id="one" class="d-none">
+                        <small class="mb-0"><?= $row['username'] ?></small>
+                      </span>
+                    </span>
+                  <?php endforeach; ?>
+                  <?php
+                  $other = count($model['history']) > 4 ? count($model['history']) - 4 : 0;
+                  ?>
+                  <?php if ($other > 0) : ?>
+                    <span class="avatar avatar-md">
+                      <span class="avatar-initials rounded-circle bg-light text-dark">
+                        <?= $other; ?>+
+                      </span>
+                    </span>
+                  <?php endif; ?>
+                <?php endif; ?>
               </div>
             </div>
           </div>
@@ -199,7 +201,7 @@ $maxActivity = $length > 3 ? 3 : $length;
                             <input type="hidden" name="id_lelang" value="<?= $model['auction']['id_lelang']; ?>" />
                             <input type="hidden" name="id_barang" value="<?= $model['auction']['id_barang']; ?>" />
                             <input type="hidden" name="id_user" value="<?= $model['auth']['id_user']; ?>" />
-                            <input class="form-control rupiah" name="price" type="number" min="<?= $length > 0 && $model['history'][0]['penawaran_harga'] >= $model["auction"]["harga_awal"] ? $model['history'][0]['penawaran_harga'] : $model["auction"]["harga_awal"]; ?>" placeholder="Enter bid amount" required />
+                            <input class="form-control money" name="price" type="text" min="<?= $length > 0 && $model['history'][0]['penawaran_harga'] >= $model["auction"]["harga_awal"] ? $model['history'][0]['penawaran_harga'] : $model["auction"]["harga_awal"]; ?>" placeholder="Enter bid amount" required pattern="^[1-9][\.\d]*(,\d+)?$" title="Please enter number only" value="<?= @$_POST['price']; ?>" />
                             <button type="submit" class="btn btn-icon btn-primary border border-2 rounded-circle btn-dashed ms-2">
                               +
                             </button>
@@ -219,62 +221,9 @@ $maxActivity = $length > 3 ? 3 : $length;
     <div id="auction-list" class="row">
       <?php if (is_array($model['products'])) : ?>
         <div class="col-12 mt-8 mb-6">
-          <h2 class="text-center">Similar products</h2>
+          <h2 class="text-center">Related products</h2>
         </div>
-        <?php foreach ($model['products'] as $key => $row) : ?>
-          <?php $dueDate = new DateTime($row["tgl_ditutup"]); ?>
-          <div class="col-xxl-3 col-xl-4 col-lg-6 col-md-6 col-sm-12 mb-5">
-            <div class="card h-100">
-              <div class="card-body">
-                <div class="">
-                  <div class="">
-                    <div class="ms-0 mb-3">
-                      <div class="thumbnail hover-scale-up">
-                        <a href="./auction/<?= $row['id_barang']; ?>">
-                          <img src="https://cdn.imagin.studio/getImage?angle=01&billingTag=web&customer=carwow&make=toyota&modelFamily=corolla&modelVariant=hatchback&modelYear=2023&paintId=pspc0323&tailoring=carwow&width=1200&zoomLevel=0&zoomType=fullscreen" style="width: 100%;" alt="Image">
-                        </a>
-                      </div>
-                      <h4 class="card-title mt-3 mb-1">
-                        <a href="./auction/<?= $row['id_barang']; ?>" class="text-inherit"><?= $row['nama_barang']; ?></a>
-                      </h4>
-                      <p class="card-subtitle mt-0 text-muted">Rp <?= number_format((int) $row["harga_awal"], 2, ",", ".") ?></h6>
-                    </div>
-                  </div>
-                </div>
-                <div class="d-flex justify-content-between align-items-center">
-                  <div>
-                    <a href="./auction/<?= $row['id_barang']; ?>" class="btn btn-primary text-uppercase">Place A Bid</a>
-                  </div>
-                  <div class="d-flex align-items-center">
-                    <div class="avatar-group">
-                      <span class="avatar avatar-sm">
-                        <img alt="avatar" src="https://i.pravatar.cc/150?img=<?= rand(1, 70); ?>" class="rounded-circle imgtooltip" data-template="eleven">
-                        <span id="eleven" class="d-none">
-                          <span>Charlie Holland</span>
-                        </span>
-                      </span>
-                      <span class="avatar avatar-sm">
-                        <img alt="avatar" src="https://i.pravatar.cc/150?img=<?= rand(1, 70); ?>" class="rounded-circle imgtooltip" data-template="eleven">
-                        <span id="eleven" class="d-none">
-                          <span>Charlie Holland</span>
-                        </span>
-                      </span>
-                      <span class="avatar avatar-sm">
-                        <img alt="avatar" src="https://i.pravatar.cc/150?img=<?= rand(1, 70); ?>" class="rounded-circle imgtooltip" data-template="twelve">
-                        <span id="twelve" class="d-none">
-                          <span>Jamie Lusar</span>
-                        </span>
-                      </span>
-                      <span class="avatar avatar-sm ">
-                        <span class="avatar-initials rounded-circle bg-light text-dark">2+</span>
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        <?php endforeach; ?>
+        <?php require_once __DIR__ . "/../components/auction/card.php"; ?>
       <?php endif; ?>
     </div>
   </div>
