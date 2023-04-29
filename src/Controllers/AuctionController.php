@@ -60,20 +60,24 @@ class AuctionController
     $mysqli->begin_transaction();
     try {
       $request = new Barang();
-      $request->nama_barang = $_POST['nama_barang'];
-      $request->tgl = $_POST['tgl_dibuka'];
-      $request->harga_awal = $_POST['harga_awal'];
-      $request->deskripsi_barang = $_POST['deskripsi_barang'];
-      $result = $this->product->save($request);
+      $request->nama_barang = htmlspecialchars($_POST['nama_barang']);
+      $request->tgl = htmlspecialchars($_POST['tgl_dibuka']);
+      $request->harga_awal = htmlspecialchars((int) str_replace(",", "", $_POST['harga_awal']));
+      $request->deskripsi_barang = htmlspecialchars($_POST['deskripsi_barang']);
 
+      if (!is_numeric($request->harga_awal)) {
+        throw new Exception("Please enter budget number only");
+      }
+      
+      $result = $this->product->save($request);
       $newAuction = new Lelang();
       $newAuction->id_barang = $result->insert_id;
       $newAuction->tgl_dibuka = $request->tgl;
-      $newAuction->tgl_ditutup = $_POST['tgl_ditutup'];
+      $newAuction->tgl_ditutup = htmlspecialchars($_POST['tgl_ditutup']);
       $newAuction->harga_akhir = 0;
       $newAuction->id_petugas = $this->session['id_petugas'];
       $newAuction->id_user = null;
-      $newAuction->status = $_POST['status'];
+      $newAuction->status = htmlspecialchars($_POST['status']);
       $this->auction->save($newAuction);
 
       $mysqli->commit();
@@ -89,7 +93,14 @@ class AuctionController
   public function show(string $barangId, ?string $view = null): void
   {
     $auction = $this->auction->findByBarangId($barangId);
-    $products = $this->auction->findAllByStatus("dibuka");
+    $activeProducts = $this->auction->findAllByStatus("dibuka");
+
+    $products = [];
+    foreach ($activeProducts as $key => $row) {
+      if ($row["id_barang"] != $barangId) {
+        $products[] = $row;
+      }
+    }
 
     if (isset($auction)) {
       $history = $this->history->findAllByLelangId($auction['id_lelang']);
@@ -97,7 +108,7 @@ class AuctionController
         "auction" => $auction,
         "auth" => $this->session,
         "history" => $history,
-        "products" => array_slice($products, rand(0, count($products) / 2), 3)
+        "products" => array_slice($products, 0, 3)
       ]);
       return;
     }
@@ -107,11 +118,13 @@ class AuctionController
   public function edit(string $barangId): void
   {
     $product = $this->auction->findByBarangId($barangId);
+    $history = $this->history->findAllByLelangId($product['id_lelang']);
 
     if (isset($product)) {
       View::render("auction/form", [
         "product" => $product,
         "action" => "edit",
+        "history" => $history,
         "auth" => $this->session
       ]);
       return;
@@ -126,17 +139,22 @@ class AuctionController
     try {
       $request = new Barang();
       $request->id_barang = $barangId;
-      $request->nama_barang = $_POST['nama_barang'];
-      $request->tgl = $_POST['tgl_dibuka'];
-      $request->harga_awal = $_POST['harga_awal'];
-      $request->deskripsi_barang = $_POST['deskripsi_barang'];
+      $request->nama_barang = htmlspecialchars($_POST['nama_barang']);
+      $request->tgl = htmlspecialchars($_POST['tgl_dibuka']);
+      $request->harga_awal = htmlspecialchars((int) str_replace(",", "", $_POST['harga_awal']));
+      $request->deskripsi_barang = htmlspecialchars($_POST['deskripsi_barang']);
+
+      if (!is_numeric($request->harga_awal)) {
+        throw new Exception("Please enter budget number only");
+      }
+
       $this->product->updateByBarangId($request);
 
       $newAuction = new Lelang();
       $newAuction->id_barang = $barangId;
       $newAuction->tgl_dibuka = $request->tgl;
-      $newAuction->tgl_ditutup = $_POST['tgl_ditutup'];
-      $newAuction->status = $_POST['status'];
+      $newAuction->tgl_ditutup = htmlspecialchars($_POST['tgl_ditutup']);
+      $newAuction->status = htmlspecialchars($_POST['status']);
       $this->auction->updateByBarangId($newAuction);
 
       $mysqli->commit();
@@ -179,10 +197,15 @@ class AuctionController
     $mysqli->begin_transaction();
     try {
       $request = new HistoryLelang();
-      $request->penawaran_harga = $_POST['price'];
-      $request->id_barang = $_POST['id_barang'];
-      $request->id_lelang = $_POST['id_lelang'];
-      $request->id_user = $_POST['id_user'];
+      $request->penawaran_harga = htmlspecialchars((int) str_replace(",", "", $_POST['price']));
+      $request->id_barang = htmlspecialchars($_POST['id_barang']);
+      $request->id_lelang = htmlspecialchars($_POST['id_lelang']);
+      $request->id_user = htmlspecialchars($_POST['id_user']);
+
+      // Check tipe data penawaran harga int
+      if (!is_numeric($request->penawaran_harga)) {
+        throw new Exception("Please enter bid amount number only");
+      }  
 
       // Check jika harga telah ada
       $history = $this->history->findAllByLelangId($request->id_lelang);
@@ -190,6 +213,10 @@ class AuctionController
         if ($value['penawaran_harga'] === $request->penawaran_harga) {
           throw new Exception("Your bid request already exists");
         }
+        if ($value['penawaran_harga'] >= $request->penawaran_harga) {
+          throw new Exception("Your bid request must be greater");
+        }
+
       }
 
       // check jika sudah membuat penawaran harga
