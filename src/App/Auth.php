@@ -14,7 +14,7 @@ class Auth
     try {
       $user = $request->findByUsername($request->username);
       if (is_null($user)) {
-        throw new Exception("Invalid username");
+        throw new Exception("Invalid username or password");
       }
       if (!password_verify($request->password, $user['password'])) {
         throw new Exception("Invalid username or password");
@@ -43,7 +43,8 @@ class Auth
     $level = "masyarakat";
     if (isset($user['id_level'])) {
       $role = new LevelPetugas();
-      $level = $role->findByIdLevel($user['id_level'])->level;
+      $result = $role->findByIdLevel($user['id_level']);
+      $level = $result['level'];
     }
 
     $auth = $user;
