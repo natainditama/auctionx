@@ -8,7 +8,7 @@ $makeIndex = rand(0, count($json) - 1);
 $modelIndex = rand(0, count($json[$makeIndex]->model) - 1);
 ?>
 <div class="container mt-5 flex-grow-1">
-  <?php if (is_array($model['products']) && count($model['products']) > 0) : ?>
+  <?php if (is_array($model['products'][0]) && count($model['products']) > 0) : ?>
     <div class="shadow-sm bg-white my-5" style="background-image: url(./assets/images/background/sliderbg.jpg);background-position: center;background-repeat: no-repeat;background-size: cover;">
       <div class="row p-6 p-md-3">
         <div class="col-md-5">
@@ -26,6 +26,7 @@ $modelIndex = rand(0, count($json[$makeIndex]->model) - 1);
         </div>
       </div>
     </div>
+    <?php unset($model['products'][0]); ?>
   <?php endif; ?>
   <div class="row mt-10">
     <div class="col-lg-12 col-md-12 col-12">

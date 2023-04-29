@@ -61,47 +61,49 @@
               <h4 class="mb-0 mt-2">Contributions</h4>
             </div>
             <div class="card-body">
-              <h5 class="mb-2">Winner</h5>
-              <ul class="list-group list-group-flush">
-                <?php if (isset($model['history'])) : ?>
-                  <li class="list-group-item p-0 border-0 mb-3">
-                    <div class="row position-relative">
-                      <div class="col-auto pe-0 d-flex align-items-center">
-                        <div class="avatar avatar-md">
-                          <a href="./user/<?= strip_tags($model['history'][0]['username']) ?>"><img src="https://i.pravatar.cc/150?img=<?= rand(1, 70); ?>" alt="Image" class="rounded-circle"></a>
+              <?php if (count($model['history']) > 0) :  ?>
+                <h5 class="mb-2">Winner</h5>
+                <ul class="list-group list-group-flush">
+                  <?php if (isset($model['history'])) : ?>
+                    <li class="list-group-item p-0 border-0 mb-3">
+                      <div class="row position-relative">
+                        <div class="col-auto pe-0 d-flex align-items-center">
+                          <div class="avatar avatar-md">
+                            <a href="./user/<?= strip_tags($model['history'][0]['username']) ?>"><img src="https://i.pravatar.cc/150?img=<?= rand(1, 70); ?>" alt="Image" class="rounded-circle"></a>
+                          </div>
+                        </div>
+                        <div class="col-auto">
+                          <h4 class="mb-1 h5">
+                            <a href="./user/<?= htmlspecialchars($model['history'][0]['username']) ?>"><?= $model['history'][0]['nama_lengkap']; ?></a>
+                          </h4>
+                          <p class="mb-0 text-muted">Rp <?= number_format((int) $model['history'][0]['penawaran_harga'], 2, ",", "."); ?></p>
                         </div>
                       </div>
-                      <div class="col-auto">
-                        <h4 class="mb-1 h5">
-                          <a href="./user/<?= htmlspecialchars($model['history'][0]['username']) ?>"><?= $model['history'][0]['nama_lengkap']; ?></a>
-                        </h4>
-                        <p class="mb-0 text-muted">Rp <?= number_format((int) $model['history'][0]['penawaran_harga'], 2, ",", "."); ?></p>
-                      </div>
-                    </div>
-                  </li>
-                <?php else : ?>
-                  <p class="mb-0"><?= $model["auction"]["nama_barang"] ?> auctions have no contributors</p>
-                <?php endif; ?>
-              </ul>
-              <div class="mb-4">
-                <h5 class="">Contributors</h5>
-                <div class="d-flex align-items-center">
-                  <div class="avatar-group">
-                    <?php if (isset($model['history']) && count($model['history']) > 0) : ?>
-                      <?php foreach ($model['history'] as $key => $row) : ?>
-                        <span class="avatar avatar-md">
-                          <a href="./user/<?= $row['username'] ?>">
-                            <img alt="avatar" src="https://i.pravatar.cc/150?img=<?= rand(1, 70); ?>" class="rounded-circle imgtooltip" data-template="one">
-                          </a>
-                          <span id="one" class="d-none">
-                            <small class="mb-0"><?= $row['username'] ?></small>
+                    </li>
+                </ul>
+                <div class="mb-4">
+                  <h5 class="">Contributors</h5>
+                  <div class="d-flex align-items-center">
+                    <div class="avatar-group">
+                      <?php if (isset($model['history']) && count($model['history']) > 0) : ?>
+                        <?php foreach ($model['history'] as $key => $row) : ?>
+                          <span class="avatar avatar-md">
+                            <a href="./user/<?= $row['username'] ?>">
+                              <img alt="avatar" src="https://i.pravatar.cc/150?img=<?= rand(1, 70); ?>" class="rounded-circle imgtooltip" data-template="one">
+                            </a>
+                            <span id="one" class="d-none">
+                              <small class="mb-0"><?= $row['username'] ?></small>
+                            </span>
                           </span>
-                        </span>
-                      <?php endforeach; ?>
-                    <?php endif; ?>
+                        <?php endforeach; ?>
+                      <?php endif; ?>
+                    </div>
                   </div>
                 </div>
-              </div>
+              <?php endif; ?>
+            <?php else : ?>
+              <p class="mb-0"><?= $model["product"]["nama_barang"] ?> auctions have no contributors</p>
+            <?php endif; ?>
             </div>
           </div>
         </div>
