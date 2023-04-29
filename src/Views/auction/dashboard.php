@@ -1,13 +1,11 @@
 <div class="container pt-6">
   <div class="row">
     <div class="col-lg-12 col-md-12 col-12">
-      <div>
-        <div class="d-flex justify-content-between align-items-center">
-          <h3 class="mb-0">Auction List</h3>
-          <div class="d-flex gap-2">
-            <a href="./auction/export" target="_blank" class="btn btn-success">Export Excel</a>
-            <a href="./auction/create" class="btn btn-white">Add Auction</a>
-          </div>
+      <div class="d-flex justify-content-between align-items-center">
+        <h3 class="mb-0">Auction List</h3>
+        <div class="d-flex gap-2">
+          <a href="./auction/export" target="_blank" class="btn btn-success">Export Excel</a>
+          <a href="./auction/create" class="btn btn-white">Add Auction</a>
         </div>
       </div>
     </div>
@@ -39,7 +37,7 @@
                       <div class="d-flex align-items-center">
                         <div class="ms-0 lh-1">
                           <h5 class="mb-1">
-                            <a href="./auction/<?= $row['id_barang'] ?>" class="text-inherit"><?= $row['nama_barang']; ?></a>
+                            <a href="./auction/<?= $row['id_barang'] ?>" class="text-inherit"><?=($row['nama_barang']); ?></a>
                           </h5>
                         </div>
                       </div>
