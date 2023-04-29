@@ -29,7 +29,7 @@ class Lelang extends Database
 
   public function findAllByStatus(string $status): ?array
   {
-    $query = "SELECT `id_lelang`, `tb_lelang`.`id_barang`, `tgl_dibuka`, `tgl_ditutup`, `harga_akhir`, `id_user`, `tb_lelang`.`id_petugas`, `status`, `nama_barang`, `harga_awal`, `deskripsi_barang`, `tb_petugas`.`nama_petugas`, `tb_petugas`.`username` FROM `tb_lelang` INNER JOIN `tb_barang` ON `tb_lelang`.`id_barang` = `tb_barang`.`id_barang` INNER JOIN `tb_petugas` ON `tb_lelang`.`id_petugas` = `tb_petugas`.`id_petugas` WHERE `status` = ? AND `tgl_dibuka` <= NOW() ORDER BY `id_lelang` DESC";
+    $query = "SELECT `id_lelang`, `tb_lelang`.`id_barang`, `tgl_dibuka`, `tgl_ditutup`, `harga_akhir`, `id_user`, `tb_lelang`.`id_petugas`, `status`, `nama_barang`, `harga_awal`, `deskripsi_barang`, `tb_petugas`.`nama_petugas`, `tb_petugas`.`username` FROM `tb_lelang` INNER JOIN `tb_barang` ON `tb_lelang`.`id_barang` = `tb_barang`.`id_barang` INNER JOIN `tb_petugas` ON `tb_lelang`.`id_petugas` = `tb_petugas`.`id_petugas` WHERE `status` = ? AND `tgl_dibuka` <= NOW() AND `tgl_ditutup` >= NOW() ORDER BY `id_lelang` DESC";
     $statement = $this->mysqli->prepare($query);
     $statement->bind_param("s", $status);
     $statement->execute();
