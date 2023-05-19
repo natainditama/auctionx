@@ -14,17 +14,15 @@ Removed sections:
 - Running Test
 - Deployment
 - FAQ
+- Acknowledgements
 -->
 
 <div align="center">
-
   <h1>Auctionx</h1>
-  
   <p>
-    Online Auctions for Automotive and Vehicles
+    Online vehicle auctions built with PHP MVC  
   </p>
 
-  
 <!-- Badges -->
 <p>
   <a href="https://github.com/natainditama/auctionx/graphs/contributors">
@@ -58,17 +56,16 @@ Removed sections:
   </h4>
 </div>
 
-<br /><br />
+<br />
 
 <div align="center"> 
   <img src="https://user-images.githubusercontent.com/81244669/235050191-50f32154-bbf4-47ee-89e7-31b7f6c77fb7.png" alt="screenshot" />
 </div>
 
-<br /><br />
+<br />
 
 <!-- About the Project -->
 ## About the Project
-
 
 <!-- Color Reference -->
 ### Color Reference
@@ -80,33 +77,18 @@ Removed sections:
 | Background Color | ![#f9fafb](https://via.placeholder.com/10/f9fafb?text=+) #f9fafb |
 | Text Color | ![#637381](https://via.placeholder.com/10/637381?text=+) #637381 |
 
+<!-- Features -->
+### Features
 
-<!-- TechStack -->
-### Tech Stack
-
-<details>
-  <summary>Client</summary>
-  <ul>
-    <li><a href="https://getbootstrap.com/">Bootstrap</a></li>
-  </ul>
-</details>
-
-<details>
-  <summary>Server</summary>
-  <ul>
-    <li><a href="https://www.apachefriends.org/">Xampp</a></li>
-    <li><a href="https://www.apache.org/">Apache</a></li>
-  </ul>
-</details>
-
-<details>
-<summary>Database</summary>
-  <ul>
-    <li><a href="https://www.mysql.com/">MySQL</a></li>
-  </ul>
-</details>
-
-<br />
+- User Authentication
+- Responsive Design
+- Auction Countdown Timer
+- Product Recommendations
+- SEO Optimization
+- Reserve Price
+- Bidding System
+- Auction History
+- Admin Dashboard
 
 <!-- Getting Started -->
 ## 	Getting Started
@@ -138,23 +120,19 @@ Build resources & assets
   npx gulp build
 ```
 
-<br /><br />
-
 <!-- Contributing -->
 ## Contributing
 
 <a href="https://github.com/natainditama/auctionx/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=natainditama/auctionx" />
-</a>
+</a><br /><br />
 
 Contributions are always welcome!
-
 
 <!-- License -->
 ## License
 
 Distributed under the no License. See LICENSE.txt for more information.
-
 
 <!-- Contact -->
 ## Contact
