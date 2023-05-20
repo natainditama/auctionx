@@ -129,6 +129,11 @@ Build resources & assets
 
 Contributions are always welcome!
 
+<!-- Credit -->
+## Credit
+- Image placeholders by [Imagin.studio](https://www.imagin.studio/)
+- Admin template by [Dashui](https://dashui.codescandy.com/)
+
 <!-- License -->
 ## License
 
