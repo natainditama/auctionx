@@ -35,27 +35,6 @@ CREATE TABLE `history_lelang` (
   `penawaran_harga` int(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `history_lelang`
---
-
-INSERT INTO `history_lelang` (`id_history`, `id_lelang`, `id_barang`, `id_user`, `penawaran_harga`) VALUES
-(1, 3, 3, 1, 300000),
-(2, 2, 2, 2, 650000),
-(3, 1, 1, 2, 700000),
-(4, 4, 4, 2, 320000),
-(5, 3, 3, 3, 350000),
-(6, 1, 1, 3, 750000),
-(7, 4, 4, 3, 400000),
-(8, 2, 2, 4, 720000),
-(11, 4, 4, 4, 450000),
-(12, 2, 2, 6, 800000),
-(13, 11, 11, 7, 300000),
-(14, 13, 13, 7, 800000),
-(15, 12, 12, 7, 950000),
-(16, 10, 10, 7, 100000),
-(17, 8, 8, 7, 500000);
-
 -- --------------------------------------------------------
 
 --
