@@ -11,10 +11,6 @@ $price = number_format($price, 2, ",", ".");
 $length = count($model['history']);
 $maxActivity = $length > 3 ? 3 : $length;
 
-$req = file_get_contents('http://localhost/web_027_nata_p4/public/data/images.json');
-$json = (array) json_decode($req);
-$makeIndex = rand(0, count($json) - 1);
-$modelIndex = rand(0, count($json[$makeIndex]->model) - 1);
 ?>
 
 <div class="bg-white pt-8 mb-6">
@@ -86,12 +82,12 @@ $modelIndex = rand(0, count($json[$makeIndex]->model) - 1);
   <div class="row mb-5">
     <div class="col-md-12 col-xl-4 col-12">
       <div>
-        <img class="w-100" src="https://cdn.imagin.studio/getImage?angle=01&billingTag=web&customer=carwow&make=<?= $json[$makeIndex]->make ?>&modelFamily=<?= $json[$makeIndex]->model[$modelIndex]; ?>&tailoring=carwow&width=1200&zoomLevel=0&zoomType=fullscreen" alt="Image" style="height:218px;display: block;">
+        <img class="w-100 car-thumb" data-angle="01" alt="Image" src="https://cdn.imagin.studio/getImage" style="height:218px;display: block;">
       </div>
     </div>
     <div class="col-md-12 col-xl-4 col-12">
       <div>
-        <img class="w-100" src="https://cdn.imagin.studio/getImage?angle=05&billingTag=web&customer=carwow&make=<?= $json[$makeIndex]->make ?>&modelFamily=<?= $json[$makeIndex]->model[$modelIndex]; ?>&tailoring=carwow&width=800&zoomLevel=0&zoomType=fullscreen" alt="Image" style="height:218px;display: block;">
+        <img class="w-100 car-thumb" data-angle="05" alt="Image" src="https://cdn.imagin.studio/getImage" style="height:218px;display: block;">
       </div>
     </div>
     <div class="col-md-12 col-xl-4 col-12">

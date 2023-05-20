@@ -8,12 +8,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="shortcut icon" type="image/x-icon" href="./assets/images/favicon/favicon.ico">
   <!-- Libs CSS -->
-  <link href="./assets/libs/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet" />
-  <link href="./assets/libs/dropzone/dist/dropzone.css" rel="stylesheet" />
-  <link href="./assets/libs/@mdi/font/css/materialdesignicons.min.css" rel="stylesheet" />
-  <link href="./assets/libs/prismjs/themes/prism-okaidia.min.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.3/font/bootstrap-icons.min.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.3/dropzone.css" rel=" stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/7.2.96/css/materialdesignicons.min.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-okaidia.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="./assets/css/theme.min.css">
-  <link rel="stylesheet" href="./assets/libs/datatables.net-bs5/css/dataTables.bootstrap5.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/datatables.net-bs5/1.13.4/dataTables.bootstrap5.min.css">
   <style>
     .dataTables_paginate,
     .dataTables_info,

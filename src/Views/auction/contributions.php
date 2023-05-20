@@ -8,11 +8,6 @@ $interval = $dateNow->diff($dueDate);
 $length = count($model['history']);
 $maxActivity = $length > 3 ? 3 : $length;
 
-$req = file_get_contents('http://localhost/web_027_nata_p4/public/data/images.json');
-$json = (array) json_decode($req);
-$makeIndex = rand(0, count($json) - 1);
-$modelIndex = rand(0, count($json[$makeIndex]->model) - 1);
-
 ?>
 
 <div class="">

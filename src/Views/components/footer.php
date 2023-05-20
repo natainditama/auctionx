@@ -35,18 +35,18 @@ if (Auth::getSession()) : ?>
 </footer>
 
 <!-- Libs JS -->
-<script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
-<script src="./assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-<script src="./assets/libs/jquery-slimscroll/jquery.slimscroll.min.js"></script>
-<script src="./assets/libs/feather-icons/dist/feather.min.js"></script>
-<script src="./assets/libs/prismjs/prism.js"></script>
-<script src="./assets/libs/apexcharts/dist/apexcharts.min.js"></script>
-<script src="./assets/libs/dropzone/dist/min/dropzone.min.js"></script>
-<script src="./assets/libs/prismjs/plugins/toolbar/prism-toolbar.min.js"></script>
-<script src="./assets/libs/prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
-<script src="./assets/libs/datatables/media/js/jquery.dataTables.min.js"></script>
-<script src="./assets/libs/datatables.net-bs5/js/dataTables.bootstrap5.min.js"></script>
-<script src="./assets/libs/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0-alpha1/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jQuery-slimScroll/1.3.8/jquery.slimscroll.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.29.0/feather.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.37.2/apexcharts.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.3/dropzone.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/toolbar/prism-toolbar.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.18/js/jquery.dataTables.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/datatables.net-bs5/1.13.4/dataTables.bootstrap5.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/datatables.net-responsive/2.4.1/dataTables.responsive.min.js"></script>
 <script src="https://dashui.codescandy.com/dashuipro/assets/js/vendors/datatable.js"></script>
 <script src="./assets/js/theme.min.js"></script>
 <script>
@@ -119,6 +119,25 @@ if (Auth::getSession()) : ?>
       countdown(datetime, $(item), format);
       console.log(item)
     })
+
+    $.ajax({
+      url: "./data/images.json"
+    }).done(function(data) {
+      $(".car-thumb").each(function() {
+        const angle = $(this).data("angle")
+        const makeIndex = getRandomInt(0, (data).length - 1);
+        const modelIndex = getRandomInt(0, (data[makeIndex]['model']).length - 1);
+        const url = `https://cdn.imagin.studio/getImage?angle=${angle}&billingTag=web&customer=carwow&make=${data[makeIndex]['make']}&modelFamily=${data[makeIndex]['model'][modelIndex]}&tailoring=carwow&width=800&zoomLevel=0&zoomType=fullscreen`
+        $(this).attr('src', url)
+        $(this).attr('srcSet', url)
+      })
+    }).fail(function() {
+      $(".car-thumb").each(function() {
+        $(this).attr('src', `https://cdn.imagin.studio/getImage`)
+        $(this).attr('srcSet', `https://cdn.imagin.studio/getImage`)
+      })
+    })
+
   });
 
   function countdown(datetime, target, format = {
@@ -163,6 +182,12 @@ if (Auth::getSession()) : ?>
         }
       }
     }, 1000);
+  }
+
+  function getRandomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
   }
 </script>
 </body>

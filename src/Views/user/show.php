@@ -59,7 +59,7 @@
               </div>
               <div class="col-6 mb-5">
                 <h5 class="text-uppercase">Phone</h5>
-                <p class="mb-0">+6281937129739</p>
+                <p class="mb-0">+10313081301</p>
               </div>
               <div class="col-6 mb-5">
                 <h5 class="text-uppercase">
@@ -69,7 +69,7 @@
               </div>
               <div class="col-6">
                 <h5 class="text-uppercase">Email</h5>
-                <p class="mb-0">natainditama.dev@gmail.com</p>
+                <p class="mb-0">hello.mail@gmail.com</p>
               </div>
               <div class="col-6">
                 <h5 class="text-uppercase">Location</h5>

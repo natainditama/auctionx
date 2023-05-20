@@ -1,19 +1,14 @@
 <?php
 
 use NataInditama\Auctionx\Models\HistoryLelang;
-
-$req = file_get_contents('http://localhost/web_027_nata_p4/public/data/images.json');
-$json = (array) json_decode($req);
-$makeIndex = rand(0, count($json) - 1);
-$modelIndex = rand(0, count($json[$makeIndex]->model) - 1);
 ?>
 <div class="container mt-5 flex-grow-1">
-  <?php if (is_array($model['products'][0]) && count($model['products']) > 0) : ?>
+  <?php if (count($model['products']) > 0 && is_array($model['products'][0])) : ?>
     <div class="shadow-sm bg-white my-5" style="background-image: url(./assets/images/background/sliderbg.jpg);background-position: center;background-repeat: no-repeat;background-size: cover;">
       <div class="row p-6 p-md-3">
         <div class="col-md-5">
           <a href="./auction/<?= $model['products'][0]['id_barang']; ?>" style="display: block;width:100%;max-height: 260px;">
-            <img src="https://cdn.imagin.studio/getImage?angle=02&billingTag=web&customer=carwow&make=<?= $json[$makeIndex]->make ?>&modelFamily=<?= $json[$makeIndex]->model[$modelIndex] ?>&modelVariant=hatchback&modelYear=2023&paintId=pspc0323&tailoring=carwow&width=1200&zoomLevel=0&zoomType=fullscreen" style="width: 100%;" alt="Image">
+            <img class="car-thumb" src="https://cdn.imagin.studio/getImage" style="width: 100%;" alt="Image" data-make="<?= $makeIndex ?>" data-model="<?= $modelIndex ?>">
           </a>
         </div>
         <div class="col">
