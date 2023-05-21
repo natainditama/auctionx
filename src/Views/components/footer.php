@@ -14,9 +14,9 @@ if (Auth::getSession()) : ?>
         <h2><a href="#" class="m-0 text-primary fw-bold"><?= SITE_NAME; ?></a></h2>
         <div class="d-flex gap-3 justify-content-center align-items-center my-4">
           <a class="text-light" href="./">Home</a>
-          <a class="text-light" href="./about">About</a>
-          <a class="text-light" href="./blog">News</a>
-          <a class="text-light" href="./contact">Contact</a>
+          <a class="text-light" href="./">About</a>
+          <a class="text-light" href="./">News</a>
+          <a class="text-light" target="_blank" href="http://github.com/natainditama/auctionx">Contact</a>
         </div>
         <div class="ftco-footer-social p-0">
           <li class="ftco-animate"><a href="#" class="border text-white" data-toggle="tooltip" data-placement="top" title="Twitter"><i data-feather="twitter" class="icon-xs"></i></a></li>
