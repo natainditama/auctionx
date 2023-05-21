@@ -108,16 +108,16 @@ Go to the project directory
   cd auctionx
 ```
 
-Install dependencies
+Generate the autoload file
 
 ```bash
-  npm install
+  composer dump-autoload
 ```
 
-Build resources & assets
+Start the php server
 
 ```bash
-  npx gulp build
+  php -S localhost:5000
 ```
 
 <!-- Contributing -->
@@ -131,7 +131,7 @@ Contributions are always welcome!
 
 <!-- Credit -->
 ## Credit
-- Image placeholders by [Imagin.studio](https://www.imagin.studio/)
+- Image placeholders by [Imagin](https://www.imagin.studio/)
 - Admin template by [Dashui](https://dashui.codescandy.com/)
 
 <!-- License -->
