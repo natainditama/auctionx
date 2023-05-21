@@ -62,7 +62,7 @@ class Lelang extends Database
 
   public function save(Lelang $request): mysqli_stmt|bool
   {
-    $query = "INSERT INTO `tb_lelang`(`id_lelang`, `id_barang`, `tgl_dibuka`, `tgl_ditutup`, `harga_akhir`, `id_user`, `id_petugas`, `status`) VALUES (NULL,?,?,?,?,?,?,?)";
+    $query = "INSERT INTO `tb_lelang`(`id_barang`, `tgl_dibuka`, `tgl_ditutup`, `harga_akhir`, `id_user`, `id_petugas`, `status`) VALUES (?,?,?,?,?,?,?)";
 
     $statement = $this->mysqli->prepare($query);
     $statement->bind_param("issiiis", $request->id_barang, $request->tgl_dibuka, $request->tgl_ditutup, $request->harga_akhir, $request->id_user, $request->id_petugas, $request->status);

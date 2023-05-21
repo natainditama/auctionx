@@ -39,7 +39,7 @@ class Barang extends Database
 
   public function save(Barang $request): mysqli_stmt|bool
   {
-    $query = "INSERT INTO `tb_barang`(`id_barang`, `nama_barang`, `tgl`, `harga_awal`, `deskripsi_barang`) VALUES ('',?,?,?,?)";
+    $query = "INSERT INTO `tb_barang`(`nama_barang`, `tgl`, `harga_awal`, `deskripsi_barang`) VALUES (?,?,?,?)";
 
     $statement = $this->mysqli->prepare($query);
     $statement->bind_param("ssis", $request->nama_barang, $request->tgl, $request->harga_awal, $request->deskripsi_barang);

@@ -26,7 +26,7 @@ class Petugas extends Database
 
   public function save(Petugas $request): void
   {
-    $query = "INSERT INTO `tb_petugas`(`id_petugas`, `nama_petugas`, `username`, `password`, `id_level`) VALUES ('',?,?,?,?)";
+    $query = "INSERT INTO `tb_petugas`(`nama_petugas`, `username`, `password`, `id_level`) VALUES (?,?,?,?)";
 
     $statement = $this->mysqli->prepare($query);
     $statement->bind_param("sssi", $request->nama_petugas, $request->username, password_hash($request->password, PASSWORD_BCRYPT), $request->id_level);

@@ -39,7 +39,7 @@ class HistoryLelang extends Database
 
   public function save(HistoryLelang $request): void
   {
-    $query = "INSERT INTO `history_lelang`(`id_history`, `id_lelang`, `id_barang`, `id_user`, `penawaran_harga`) VALUES ('',?,?,?,?)";
+    $query = "INSERT INTO `history_lelang`(`id_lelang`, `id_barang`, `id_user`, `penawaran_harga`) VALUES (?,?,?,?)";
 
     $statement = $this->mysqli->prepare($query);
     $statement->bind_param("iiii", $request->id_lelang, $request->id_barang, $request->id_user, $request->penawaran_harga);

@@ -27,7 +27,7 @@ class Masyarakat extends Database
 
   public function save(Masyarakat $request): void
   {
-    $query = "INSERT INTO `tb_masyarakat`(`id_user`, `nama_lengkap`, `username`, `password`, `telp`) VALUES ('',?,?,?,?)";
+    $query = "INSERT INTO `tb_masyarakat`(`nama_lengkap`, `username`, `password`, `telp`) VALUES (?,?,?,?)";
 
     $statement = $this->mysqli->prepare($query);
     $statement->bind_param("ssss", $request->nama_lengkap, $request->username, password_hash($request->password, PASSWORD_BCRYPT), $request->telp);
