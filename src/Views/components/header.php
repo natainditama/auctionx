@@ -89,7 +89,7 @@
   Flasher::flasher();
   ?>
   <?php if (Auth::getSession()) : ?>
-    <div id="db-wrapper" class="toggled">
+    <div id="db-wrapper">
       <?php require_once __DIR__ . "/../components/dashboard/sidebar.php"; ?>
       <div id="page-content" class="mb-6">
       <?php endif; ?>
