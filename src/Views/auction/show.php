@@ -239,7 +239,7 @@ $maxActivity = $length > 3 ? 3 : $length;
                           <input type="hidden" name="id_lelang" value="<?= $model['auction']['id_lelang']; ?>" />
                           <input type="hidden" name="id_barang" value="<?= $model['auction']['id_barang']; ?>" />
                           <input type="hidden" name="id_user" value="<?= $model['auth']['id_user']; ?>" />
-                          <input class="form-control money" name="price" type="text" min="<?= $length > 0 && $model['history'][0]['penawaran_harga'] >= $model["auction"]["harga_awal"] ? $model['history'][0]['penawaran_harga'] : $model["auction"]["harga_awal"] ?>" placeholder="Enter bid amount" required pattern="^[1-9][\.\d]*(,\d+)?$" title="Please enter number only" value="<?= @$_POST['price']; ?>" />
+                          <input class="form-control money" name="price" type="text" min="<?= $length > 0 && $model['history'][0]['penawaran_harga'] >= $model["auction"]["harga_awal"] ? $model['history'][0]['penawaran_harga'] : $model["auction"]["harga_awal"] ?>" placeholder="Enter bid amount" required pattern="[0-9 _,]*" title="Please enter number only" value="<?= @$_POST['price']; ?>" />
                           <button type="submit" class="btn btn-icon btn-primary border border-2 rounded-circle btn-dashed ms-2">
                             +
                           </button>

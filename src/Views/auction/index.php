@@ -8,7 +8,7 @@ use NataInditama\Auctionx\Models\HistoryLelang;
       <div class="row p-6 p-md-3">
         <div class="col-md-5">
           <a href="./auction/<?= $model['products'][0]['id_barang']; ?>" style="display: block;width:100%;max-height: 260px;">
-            <img class="car-thumb" src="https://cdn.imagin.studio/getImage" style="width: 100%;" alt="Image" data-make="<?= $makeIndex ?>" data-model="<?= $modelIndex ?>">
+            <img class="car-thumb" src="https://cdn.imagin.studio/getImage" style="width: 100%;" alt="Image">
           </a>
         </div>
         <div class="col">

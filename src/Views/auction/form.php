@@ -44,7 +44,7 @@
               </div>
               <div class="mb-4 col-12">
                 <label class="form-label" for="harga_awal">Price <span class="text-danger">*</span> </label>
-                <input type="text" id="harga_awal" name="harga_awal" class="form-control money" placeholder="Enter product price" required="" value="<?= $model['product']['harga_awal'] ?? @$_POST['harga_awal'] ?>" min="0" pattern="^[1-9][\.\d]*(,\d+)?$" title="Please enter number only">
+                <input type="text" id="harga_awal" name="harga_awal" class="form-control money" placeholder="Enter product price" required="" value="<?= $model['product']['harga_awal'] ?? @$_POST['harga_awal'] ?>" min="0" pattern="[0-9 _,]*" title="Please enter number only">
               </div>
               <div class="mb-4 col-12">
                 <button type="submit" class="btn btn-primary me-2">Save changes</button>
