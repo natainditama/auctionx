@@ -20,7 +20,7 @@ use NataInditama\Auctionx\Models\HistoryLelang;
               <h4 class="card-title mt-3 mb-1">
                 <a href="./auction/<?= $row['id_barang']; ?>" class="text-inherit"><?= $row['nama_barang']; ?></a>
               </h4>
-              <p class="card-subtitle mt-0 text-muted">Rp <?= number_format((int) $row["harga_awal"], 2, ",", ".") ?></h6>
+              <p class="card-subtitle mt-0 text-muted">Rp <?= number_format((int) $row["harga_awal"], 2, ",", ".") ?></p>
             </div>
           </div>
         </div>
@@ -41,7 +41,7 @@ use NataInditama\Auctionx\Models\HistoryLelang;
                     <a href="./user/<?= $value['username'] ?>">
                       <img alt="avatar" src="https://i.pravatar.cc/150?img=<?= rand(1, 70); ?>" class="rounded-circle imgtooltip" data-template="one">
                     </a>
-                    <span id="one" class="d-none">
+                    <span class="d-none">
                       <small class="mb-0"><?= $value['username'] ?></small>
                     </span>
                   </span>

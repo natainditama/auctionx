@@ -3,7 +3,7 @@
 use NataInditama\Auctionx\App\Auth;
 
 if (Auth::getSession()) : ?>
-  </div>
+  </main>
   </div>
 <?php endif; ?>
 
