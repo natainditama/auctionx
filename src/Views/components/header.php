@@ -12,22 +12,34 @@
   <meta property="og:title" content="<?= $model['title'] ?? SITE_NAME ?> - <?= "Online Auctions for Automotive and Vehicles" ?>">
   <meta property="og:type" content="website">
   <meta property="og:url" content="<?= SITE_BASE_URL ?>">
-  <meta property="og:image" content="public/assets/icons/preview.png">
+  <meta property="og:image" content="<?= SITE_BASE_URL ?>assets/icons/preview.png">
   <meta property="og:locale" content="en" />
   <meta property="og:description" content="Online vehicle auctions, PHP MVC vehicle auctions, Online car auctions, Vehicle bidding platform, Buy vehicles online, Online auction website, PHP MVC framework auctions, Bid on vehicles, Online vehicle marketplace, MVC-based vehicle auctions" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@auctionx" />
   <meta name="twitter:creator" content="@natainditama" />
   <meta name="twitter:title" content="<?= $model['title'] ?? SITE_NAME ?> - <?= "Online Auctions for Automotive and Vehicles" ?>" />
-  <meta name="twitter:image" content="./assets/icons/preview.png" />
+  <meta name="twitter:image" content="<?= SITE_BASE_URL ?>assets/icons/preview.png" />
   <meta name="theme-color" content="#624bff">
   <link rel="canonical" href="<?= SITE_BASE_URL ?>">
   <link rel="shortcut icon" type="image/x-icon" href="./assets/images/favicon/favicon.ico">
   <link rel="shortcut icon" href="./assets/images/favicon/favicon.ico" type="image/x-icon">
   <link rel="manifest" href="./site.webmanifest">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-21F94WZYRH"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'G-21F94WZYRH');
+  </script>
   <!-- Libs CSS -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.3/font/bootstrap-icons.min.css" rel="stylesheet" />
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.3/dropzone.css" rel=" stylesheet" />
+  <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.3/dropzone.css" rel=" stylesheet" /> -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/7.2.96/css/materialdesignicons.min.css" rel="stylesheet" />
   <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-okaidia.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="./assets/css/theme.min.css">

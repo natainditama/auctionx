@@ -12,9 +12,9 @@
             </div>
             <!-- text -->
             <div class="lh-1">
-              <h2 class="mb-0">
+              <h1 class="h2 text-capitalize">
                 <?= $model['profile']['nama_lengkap'] ?? $model['profile']['nama_petugas'] ?>
-              </h2>
+              </h1>
               <p class="mb-0 d-block">@<?= $model['profile']['username'] ?></p>
             </div>
           </div>
@@ -31,7 +31,7 @@
   <!-- content -->
   <div>
     <!-- row -->
-    <div class="row">
+    <div class="row align-items-start">
       <div class="col-xl-6 col-lg-12 col-md-12 col-12 mb-5">
         <!-- card -->
         <div class="card h-100">

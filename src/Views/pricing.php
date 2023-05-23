@@ -19,7 +19,7 @@
                 </p>
                 <!-- price -->
                 <div class="d-flex align-items-end mt-6 mb-3">
-                  <h1 class="fw-bold me-1 mb-0">$9.99 </h1>
+                  <h1 class="fw-bold me-1 mb-0">$0.00 </h1>
                   <p class="mb-0">/mo</p>
                 </div>
                 <!-- button -->

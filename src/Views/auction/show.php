@@ -22,16 +22,15 @@ $maxActivity = $length > 3 ? 3 : $length;
             <div class="d-flex align-items-center">
               <div class="ms-0">
                 <h1 class="h3 "><?= $model["auction"]["nama_barang"] ?></h1>
-                <span>
-                  <span class="fs-5"><span class="me-1"><i class="mdi mdi-account fs-5 me-1"></i><?= $model["auction"]["nama_petugas"] ?></span> |
-                    <span class="mx-1">Status:
-                      <?php if ($dateNow > $dueDate || $model['auction']['status'] == "ditutup") : ?>
-                        <span class="ms-1 badge bg-danger">Closed</span>
-                      <?php else : ?>
-                        <span class="ms-1 badge bg-info">Opened</span>
-                      <?php endif; ?>
-                    </span>
+                <span class="fs-5"><span class="me-1"><i class="mdi mdi-account fs-5 me-1"></i><?= $model["auction"]["nama_petugas"] ?></span> |
+                  <span class="mx-1">Status:
+                    <?php if ($dateNow > $dueDate || $model['auction']['status'] == "ditutup") : ?>
+                      <span class="ms-1 badge bg-danger">Closed</span>
+                    <?php else : ?>
+                      <span class="ms-1 badge bg-info">Opened</span>
+                    <?php endif; ?>
                   </span>
+                </span>
               </div>
             </div>
           </div>
@@ -44,7 +43,7 @@ $maxActivity = $length > 3 ? 3 : $length;
                     <a href="./user/<?= $row['username'] ?>">
                       <img alt="avatar" src="https://i.pravatar.cc/150?img=<?= rand(1, 70); ?>" class="rounded-circle imgtooltip" data-template="one">
                     </a>
-                    <span id="one" class="d-none">
+                    <span class="d-none">
                       <small class="mb-0"><?= $row['username'] ?></small>
                     </span>
                   </span>

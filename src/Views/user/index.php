@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-lg-12 col-md-12 col-12">
       <div class="d-flex justify-content-between align-items-center">
-        <h3 class="mb-0">Bidders</h3>
+        <h1 class="mb-0 h3">Bidders</h1>
         <div class="d-flex gap-2">
           <button data-bs-toggle="modal" data-bs-target="#createModal" class="btn btn-white">Add Bidder</button>
         </div>
