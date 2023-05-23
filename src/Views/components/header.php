@@ -6,7 +6,25 @@
   <base href="<?= SITE_BASE_URL ?>">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><?= $model['title'] ?? SITE_NAME ?> - <?= "Online Auctions for Automotive and Vehicles" ?> </title>
+  <meta name="description" content="Explore a robust online platform for vehicle auctions built with PHP MVC architecture. Bid and buy vehicles from a wide selection, backed by a reliable and efficient PHP MVC framework.">
+  <meta name="keywords" content="Online vehicle auctions, PHP MVC vehicle auctions, Online car auctions, Vehicle bidding platform, Buy vehicles online, Online auction website, PHP MVC framework auctions, Bid on vehicles, Online vehicle marketplace, MVC-based vehicle auctions">
+  <meta property="og:title" content="<?= $model['title'] ?? SITE_NAME ?> - <?= "Online Auctions for Automotive and Vehicles" ?>">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="<?= SITE_BASE_URL ?>">
+  <meta property="og:image" content="public/assets/icons/preview.png">
+  <meta property="og:locale" content="en" />
+  <meta property="og:description" content="Online vehicle auctions, PHP MVC vehicle auctions, Online car auctions, Vehicle bidding platform, Buy vehicles online, Online auction website, PHP MVC framework auctions, Bid on vehicles, Online vehicle marketplace, MVC-based vehicle auctions" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@auctionx" />
+  <meta name="twitter:creator" content="@natainditama" />
+  <meta name="twitter:title" content="<?= $model['title'] ?? SITE_NAME ?> - <?= "Online Auctions for Automotive and Vehicles" ?>" />
+  <meta name="twitter:image" content="./assets/icons/preview.png" />
+  <meta name="theme-color" content="#624bff">
+  <link rel="canonical" href="<?= SITE_BASE_URL ?>">
   <link rel="shortcut icon" type="image/x-icon" href="./assets/images/favicon/favicon.ico">
+  <link rel="shortcut icon" href="./assets/images/favicon/favicon.ico" type="image/x-icon">
+  <link rel="manifest" href="./site.webmanifest">
   <!-- Libs CSS -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.3/font/bootstrap-icons.min.css" rel="stylesheet" />
   <link href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.3/dropzone.css" rel=" stylesheet" />
@@ -74,10 +92,6 @@
       position: relative;
     }
   </style>
-
-  <title><?= $model['title'] ?? SITE_NAME ?> - <?= "Online Auctions for Automotive and Vehicles" ?> </title>
-  <meta name="description" content="Auction is online car auctions featuring used, wholesale and repairable vehicles. Auction car auctions have something for everyone — used car buyers, dismantlers, dealers, body shops and individuals">
-
 </head>
 
 <body class="bg-light min-vh-100 d-flex flex-column" style="height: 100%;">
@@ -91,6 +105,6 @@
   <?php if (Auth::getSession()) : ?>
     <div id="db-wrapper">
       <?php require_once __DIR__ . "/../components/dashboard/sidebar.php"; ?>
-      <div id="page-content" class="mb-6">
+      <main id="page-content" class="mb-6">
       <?php endif; ?>
       <?php require_once __DIR__ . "/../components/navbar.php"; ?>
