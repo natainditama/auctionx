@@ -25,6 +25,18 @@
   <link rel="shortcut icon" type="image/x-icon" href="./assets/images/favicon/favicon.ico">
   <link rel="shortcut icon" href="./assets/images/favicon/favicon.ico" type="image/x-icon">
   <link rel="manifest" href="./site.webmanifest">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-21F94WZYRH"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'G-21F94WZYRH');
+  </script>
   <!-- Libs CSS -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.3/font/bootstrap-icons.min.css" rel="stylesheet" />
   <link href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.3/dropzone.css" rel=" stylesheet" />
