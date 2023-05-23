@@ -11,7 +11,7 @@ $auth = $model['auth'] ?? Auth::getSession();
       <div>
         <div class="d-flex justify-content-between align-items-center">
           <div class="mb-2 mb-lg-0">
-            <h3 class="mb-0 text-white">Dashboard</h3>
+            <h1 class="text-white">Dashboard</h1>
           </div>
           <div>
           </div>

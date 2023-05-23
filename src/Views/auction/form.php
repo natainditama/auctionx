@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-lg-12 col-md-12 col-12">
       <div class="mb-5">
-        <h3 class="mb-0"><?= isset($model['action']) && $model['action'] == "edit" ? "Edit " . $model['product']['nama_barang'] : "Create new auction" ?></h3>
+        <h1 class="mb-0 h3"><?= isset($model['action']) && $model['action'] == "edit" ? "Edit " . $model['product']['nama_barang'] : "Create new auction" ?></h1>
       </div>
     </div>
   </div>

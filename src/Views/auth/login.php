@@ -5,7 +5,7 @@
         <div class="card-body p-6">
           <div class="mb-4">
             <a href="./" class="mb-2">
-              <h3 class="text-primary fw-bold"><?= SITE_NAME ?></h3>
+              <h1 class="text-primary fw-bold h3"><?= SITE_NAME ?></h1>
             </a>
             <p class="mb-6">Log in to access your account</p>
           </div>

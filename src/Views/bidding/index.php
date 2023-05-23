@@ -3,7 +3,7 @@
     <div class="col-lg-12 col-md-12 col-12">
       <div>
         <div class="d-flex justify-content-between align-items-center">
-          <h3 class="mb-0">Bidding History</h3>
+          <h1 class="mb-0 h3">Bidding History</h1>
           <div class="d-flex gap-2">
             <a href="./auction" class="btn btn-white">View auction</a>
           </div>
