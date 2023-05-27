@@ -20,7 +20,7 @@ Removed sections:
 <div align="center">
   <h1>Auctionx</h1>
   <p>
-    Online vehicle auctions built with PHP MVC  
+    Efficient online vehicle auctions built with PHP MVC
   </p>
 
 <!-- Badges -->
