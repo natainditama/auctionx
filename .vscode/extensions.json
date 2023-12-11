@@ -1,0 +1,12 @@
+{
+  "recommendations": [
+    "formulahendry.auto-rename-tag",
+    "formulahendry.auto-close-tag",
+    "ecmel.vscode-html-css",
+    "zignd.html-css-class-completion",
+    "ritwickdey.liveserver",
+    "hakcorp.php-awesome-snippets",
+    "bmewburn.vscode-intelephense-client",
+    "esbenp.prettier-vscode"
+  ]
+}

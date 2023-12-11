@@ -1,0 +1,25 @@
+# Set default behavior for text files
+* text=auto
+
+# Ignore line endings for specific file types
+.*      text eol=lf
+*.css   text eol=lf
+*.html  text eol=lf
+*.js    text eol=lf
+*.json  text eol=lf
+*.md    text eol=lf
+*.sh    text eol=lf
+*.txt   text eol=lf
+*.xml   text eol=lf
+
+# Ignore file mode changes
+* -text
+
+# Ignore binary files
+*.png binary
+*.jpg binary
+*.gif binary
+
+# Specify Git merge strategy for specific files
+*.csv merge=union
+*.json merge=union
