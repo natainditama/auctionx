@@ -98,6 +98,13 @@ Go to the project directory
   cd auctionx
 ```
 
+Import the database schema
+
+```bash
+  mysql -u your_username -p < path/to/auctionx.sql
+```
+Replace your_username and path/to/auctionx.sql with your actual MySQL username and the path to the auctionx.sql file
+
 Generate the autoload file
 
 ```bash
