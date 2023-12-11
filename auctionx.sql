@@ -18,8 +18,12 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `db_027_nata_p4`
+-- Database: `auctionx`
 --
+
+CREATE DATABASE IF NOT EXISTS `auctionx`; 
+
+USE `auctionx`;
 
 -- --------------------------------------------------------
 
