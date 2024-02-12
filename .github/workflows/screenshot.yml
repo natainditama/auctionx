@@ -1,0 +1,33 @@
+name: Screenshot Website
+
+on:
+  schedule:
+    - cron: "0 9 * * *"
+
+jobs:
+  screenshot:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install playwright browsers
+        run: npx playwright install --with-deps
+
+      - name: Generate screenshot
+        id: "screenshot"
+        uses: natainditama/screen-snap@main
+        with:
+          url: "https://auctionx.pages.dev"
+          fileName: ".github/screnshot.png"
+
+      - name: Commit changes
+        # Only run this step if screenshot path is not empty
+        if: steps.screenshot.outputs.path != ''  
+        uses: EndBug/add-and-commit@v9
+        with:
+          message: "docs: update ${{ steps.screenshot.outputs.path }}"
+          add: "${{ steps.screenshot.outputs.path }}"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
