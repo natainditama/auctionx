@@ -2,20 +2,21 @@ name: PHP Composer
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [main, master]
+
   pull_request:
-    branches: [ "main" ]
+    branches: [main, master]
 
 permissions:
   contents: read
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
+    - name: Checkout repository
+      uses: actions/checkout@v3
 
     - name: Validate composer.json and composer.lock
       run: composer validate --strict
