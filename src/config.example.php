@@ -2,7 +2,7 @@
 
 // Site
 define("SITE_NAME", "Auctionx");
-define("SITE_BASE_URL", "http://localhost:5000/public/");
+define("SITE_BASE_URL", "http://localhost:5000/");
 
 // Database
 define("DB_HOST", "localhost");
